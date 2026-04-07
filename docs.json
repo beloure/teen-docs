@@ -15,10 +15,15 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "https://discord.gg/teen"
+        "label": "Website",
+        "href": "https://teen.rip"
       }
-    ]
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Support",
+      "href": "https://discord.gg/sms"
+    }
   },
   "navigation": {
     "groups": [
@@ -95,7 +100,7 @@
   },
   "footer": {
     "socials": {
-      "discord": "https://discord.gg/teen",
+      "discord": "https://discord.gg/sms",
       "github": "https://github.com/beloure"
     }
   },
