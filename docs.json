@@ -91,11 +91,7 @@
     ]
   },
   "contextual": {
-    "options": [
-      "view",
-      "chatgpt",
-      "claude"
-    ]
+    "options": []
   },
   "footer": {
     "socials": {
