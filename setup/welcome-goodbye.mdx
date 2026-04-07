@@ -1,0 +1,65 @@
+---
+title: Welcome & Goodbye
+description: Greet new members and send farewell messages.
+icon: door-open
+---
+
+import { Steps, Tip, Info } from "mintlify/components";
+
+# Welcome & Goodbye Messages
+
+Set up automatic messages when members join or leave your server. Supports embeds, variables, and multiple channels.
+
+## Welcome Messages
+
+<Steps>
+  <Step title="Add a welcome channel">
+    ```
+    ,welcome add #welcome {embed}$v2
+    $title: Welcome {user.mention}!
+    $description: You are member **#{guild.count}**. Enjoy your stay!
+    $color: #16A34A
+    {/embed}
+    ```
+  </Step>
+  <Step title="Test it">
+    ```
+    ,welcome test
+    ```
+  </Step>
+</Steps>
+
+### Commands
+
+| Command | Description |
+|---|---|
+| `,welcome add <#channel> <message>` | Add a welcome message to a channel |
+| `,welcome remove <#channel>` | Remove a welcome message |
+| `,welcome list` | View all configured welcome messages |
+| `,welcome test` | Send a test welcome message |
+| `,welcome variables` | View all available variables |
+
+## Goodbye Messages
+
+| Command | Description |
+|---|---|
+| `,goodbye add <#channel> <message>` | Add a goodbye message |
+| `,goodbye remove <#channel>` | Remove a goodbye message |
+| `,goodbye list` | View all configured goodbye messages |
+| `,goodbye test` | Send a test goodbye message |
+| `,goodbye variables` | View all available variables |
+
+<Info>
+  Both welcome and goodbye messages support [Embed Scripting](/extras/embed-scripting) for rich formatting.
+</Info>
+
+## Common Variables
+
+| Variable | Output |
+|---|---|
+| `{user}` | Username |
+| `{user.mention}` | @mention |
+| `{user.avatar}` | Avatar URL |
+| `{guild.name}` | Server name |
+| `{guild.count}` | Member count |
+| `{guild.icon}` | Server icon URL |

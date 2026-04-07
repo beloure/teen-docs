@@ -1,0 +1,55 @@
+---
+title: Introduction
+description: The only Discord bot your server needs.
+icon: hand-wave
+---
+
+import { Card, CardGroup, Steps, Tip, Info } from "mintlify/components";
+
+# Welcome to Teen
+
+Teen is a powerful, all-in-one Discord bot built to handle everything from moderation and security to music, Last.fm, and server customization — so you don't need five different bots cluttering your server.
+
+<Info>
+  Your server prefix is set to `,` by default. Use `,prefix set (symbol)` to change it.
+</Info>
+
+## Quick Start
+
+<Steps>
+  <Step title="Invite Teen">
+    [Add Teen to your server](https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot) with the required permissions.
+  </Step>
+  <Step title="Set your prefix">
+    Run `,prefix set !` (or whatever symbol you prefer) to customize your prefix.
+  </Step>
+  <Step title="Run setup">
+    Use `,setup` to quickly configure essential features like logging, welcome messages, and moderation.
+  </Step>
+  <Step title="Explore">
+    Use `,help` to browse all available commands, or check the guides below.
+  </Step>
+</Steps>
+
+## Guides
+
+<CardGroup cols={2}>
+  <Card title="Security" icon="shield-halved" href="/security/antinuke">
+    Lock down your server with antinuke, automod, and advanced moderation tools.
+  </Card>
+  <Card title="Server Setup" icon="gear" href="/setup/welcome-goodbye">
+    Configure welcome messages, autoroles, starboards, logging, and more.
+  </Card>
+  <Card title="Music" icon="headphones" href="/music/playing">
+    Play music from Spotify, SoundCloud, and YouTube with filters, autoplay, and queue management.
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations/lastfm">
+    Connect your Last.fm account, share TikToks, and more.
+  </Card>
+  <Card title="Moderation" icon="hammer" href="/moderation/commands">
+    Ban, kick, timeout, mute, purge — everything you need to keep your server clean.
+  </Card>
+  <Card title="Embed Scripting" icon="code" href="/extras/embed-scripting">
+    Build custom embeds and use variables in your welcome messages, autoresponders, and more.
+  </Card>
+</CardGroup>

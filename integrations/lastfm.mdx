@@ -1,0 +1,50 @@
+---
+title: Last.fm
+description: Connect your Last.fm account and show off your music taste.
+icon: headphones
+---
+
+import { Steps, Info, Tip } from "mintlify/components";
+
+# Last.fm Integration
+
+Link your Last.fm account to Teen and share what you're listening to, view stats, and compete with friends.
+
+## Getting Started
+
+<Steps>
+  <Step title="Link your account">
+    ```
+    ,lastfm set <username>
+    ```
+  </Step>
+  <Step title="Show what you're playing">
+    ```
+    ,lastfm nowplaying
+    ```
+  </Step>
+</Steps>
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `,lastfm set <username>` | Link your Last.fm account |
+| `,lastfm nowplaying` | Show your currently playing track |
+| `,lastfm toptracks` | View your most played tracks |
+| `,lastfm topartists` | View your most played artists |
+| `,lastfm topalbums` | View your most played albums |
+| `,lastfm count` | Total scrobble count |
+| `,lastfm playstrack <track>` | How many times you've played a track |
+| `,lastfm playsall` | Total plays across all tracks |
+| `,lastfm streak` | Your current listening streak |
+| `,lastfm whoknows` | Who in the server listens to the same artist |
+| `,lastfm wkalbum` | Who in the server listens to the same album |
+| `,lastfm recommendation` | Get a music recommendation |
+| `,lastfm style` | Customize your nowplaying embed style |
+| `,lastfm update` | Force update your Last.fm data |
+| `,lastfm reset` | Unlink your Last.fm account |
+
+<Tip>
+  Use `,lastfm whoknows` to see who else in your server listens to the artist you're currently playing. Great for finding people with similar taste.
+</Tip>

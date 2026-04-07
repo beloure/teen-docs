@@ -1,0 +1,45 @@
+---
+title: Auto Respond & React
+description: Set up automatic responses and reactions.
+icon: reply
+---
+
+# Auto Respond & React
+
+Configure Teen to automatically send messages or add reactions when specific triggers are detected.
+
+## Auto Respond
+
+Automatically reply when a message contains a specific keyword or phrase.
+
+| Command | Description |
+|---|---|
+| `,autorespond add <trigger>, <response>` | Add an auto response |
+| `,autorespond remove <trigger>` | Remove an auto response |
+| `,autorespond update <trigger>, <response>` | Update an existing response |
+| `,autorespond list` | View all auto responses |
+| `,autorespond reset` | Clear all auto responses |
+
+### Example
+
+```
+,autorespond add hello, Hey there! Welcome to the server.
+```
+
+## Auto React
+
+Automatically add reactions to messages containing specific words.
+
+| Command | Description |
+|---|---|
+| `,autoreact add <trigger> <emoji>` | Add an auto reaction |
+| `,autoreact remove <trigger>` | Remove an auto reaction |
+| `,autoreact update <trigger> <emoji>` | Update an existing reaction |
+| `,autoreact list` | View all auto reactions |
+| `,autoreact reset` | Clear all auto reactions |
+
+import { Info } from "mintlify/components";
+
+<Info>
+  Auto responses support [Embed Scripting](/extras/embed-scripting) — you can send embeds, not just plain text.
+</Info>

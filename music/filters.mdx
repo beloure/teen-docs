@@ -1,0 +1,59 @@
+---
+title: Audio Filters
+description: Apply audio effects like nightcore, bass boost, 8D, and more.
+icon: sliders
+---
+
+# Audio Filters
+
+Transform your music with real-time audio filters. Apply presets or mix and match.
+
+## Quick Toggles
+
+These commands toggle their filter on/off instantly:
+
+| Command | Aliases | Description |
+|---|---|---|
+| `,nightcore` | | Speed up + high pitch |
+| `,bassboost` | `,bb` | Heavy bass enhancement |
+| `,8d` | | Rotating spatial audio |
+
+## Filter Presets
+
+Use the `,tune` command to apply any preset:
+
+```
+,tune set nightcore
+,tune set slowed
+,tune remove nightcore
+,tune clear
+```
+
+### Available Presets
+
+| Preset | Effect |
+|---|---|
+| `nightcore` | Speed 1.25x, pitch 1.3x |
+| `slowed` | Speed 0.8x, pitch 0.85x |
+| `vaporwave` | Speed 0.85x, pitch 0.75x |
+| `8d` | Rotating audio (0.2 Hz) |
+| `tremolo` | Wavering volume effect |
+| `vibrato` | Wavering pitch effect |
+| `karaoke` | Reduce vocals |
+| `lowpass` | Muffle high frequencies |
+| `bassboost` | Enhanced bass via equalizer |
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `,tune` | View active filter and list all presets |
+| `,tune set <preset>` | Apply a filter preset |
+| `,tune remove <preset>` | Remove a specific filter |
+| `,tune clear` | Remove all active filters |
+
+import { Tip } from "mintlify/components";
+
+<Tip>
+  Only one filter can be active at a time with the preset system. Use `,tune clear` to reset before switching.
+</Tip>

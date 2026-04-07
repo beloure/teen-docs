@@ -1,0 +1,78 @@
+---
+title: Playing Music
+description: Play music from Spotify, SoundCloud, and YouTube.
+icon: play
+---
+
+import { Steps, Info, Tip } from "mintlify/components";
+
+# Playing Music
+
+Teen supports playback from **Spotify**, **SoundCloud**, and **YouTube** — just paste a link or search by name.
+
+<Info>
+  Text searches use SoundCloud by default. If nothing is found, Teen automatically falls back to YouTube.
+</Info>
+
+## Quick Start
+
+<Steps>
+  <Step title="Join a voice channel">
+    Join any voice channel in your server.
+  </Step>
+  <Step title="Play something">
+    ```
+    ,play never gonna give you up
+    ```
+    Or paste a direct link:
+    ```
+    ,play https://open.spotify.com/track/...
+    ,play https://soundcloud.com/artist/track
+    ```
+  </Step>
+</Steps>
+
+## Playback Commands
+
+| Command | Aliases | Description |
+|---|---|---|
+| `,play <query or URL>` | `,p` | Play a track or add it to the queue |
+| `,skip` | `,next` | Skip the current track |
+| `,pause` | | Pause playback |
+| `,resume` | | Resume playback |
+| `,disconnect` | `,dc`, `,leave` | Disconnect from voice |
+| `,volume <0-100>` | `,vol` | Adjust playback volume |
+| `,seek <position>` | | Jump to a timestamp (e.g. `1:30`) |
+| `,fastforward <time>` | `,ff` | Fast forward by a duration |
+| `,rewind <time>` | `,rw` | Rewind by a duration |
+
+## Autoplay
+
+When the queue runs out, Teen can automatically queue related tracks to keep the music going.
+
+```
+,autoplay on
+,autoplay off
+```
+
+<Tip>
+  Autoplay uses the current track's artist and title to find similar songs. It avoids repeating tracks you've already heard.
+</Tip>
+
+## Now Playing Controls
+
+When a track starts, Teen sends an interactive panel with **Previous**, **Pause/Resume**, and **Skip** buttons — anyone in the voice channel can use them.
+
+## Supported Sources
+
+| Source | Links | Search |
+|---|---|---|
+| **Spotify** | Tracks, albums, playlists | Resolved via SoundCloud/YouTube |
+| **SoundCloud** | Direct links | Default search engine |
+| **YouTube** | Direct links | Fallback search engine |
+
+## Auto-Disconnect
+
+Teen automatically disconnects after:
+- **5 minutes** of inactivity (nothing playing)
+- **30 seconds** after the last human leaves the voice channel

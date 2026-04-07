@@ -1,0 +1,41 @@
+---
+title: Logging
+description: Track every action in your server with detailed logs.
+icon: clipboard-list
+---
+
+# Logging
+
+Teen can log server events to designated channels so you never miss what happens in your server.
+
+## Setup
+
+```
+,log set <event> <#channel>
+```
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `,log set <event> <#channel>` | Set a log channel for an event type |
+| `,log remove <event>` | Stop logging an event |
+| `,log list` | View all configured log channels |
+
+## Event Types
+
+| Event | What It Logs |
+|---|---|
+| `message` | Message edits and deletes |
+| `member` | Member joins, leaves, role changes |
+| `channel` | Channel creates, deletes, updates |
+| `role` | Role creates, deletes, permission changes |
+| `voice` | Voice channel joins, moves, disconnects |
+| `moderation` | Bans, kicks, timeouts, mutes |
+| `server` | Server setting changes |
+
+import { Tip } from "mintlify/components";
+
+<Tip>
+  For the best setup, create a **Logs** category and use separate channels for each event type.
+</Tip>

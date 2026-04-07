@@ -1,0 +1,67 @@
+---
+title: Moderation Commands
+description: Every moderation command at your disposal.
+icon: hammer
+---
+
+# Moderation Commands
+
+Teen provides a full suite of moderation tools for managing your server.
+
+## Punishment Commands
+
+| Command | Description |
+|---|---|
+| `,ban <user> [reason]` | Ban a member from the server |
+| `,unban <user>` | Unban a user |
+| `,kick <user> [reason]` | Kick a member |
+| `,timeout <user> <duration> [reason]` | Timeout a member |
+| `,untimeout <user>` | Remove a timeout |
+| `,hardban <user> [reason]` | Permanently ban (cannot be easily unbanned) |
+
+## Mute Commands
+
+| Command | Description |
+|---|---|
+| `,pmute <user>` | Picture mute — prevent a user from sending images |
+| `,unpicturemute <user>` | Remove picture mute |
+| `,rmute <user>` | Reaction mute — prevent a user from adding reactions |
+| `,unreactionmute <user>` | Remove reaction mute |
+
+## Channel Commands
+
+| Command | Description |
+|---|---|
+| `,purge <amount>` | Delete messages in bulk |
+| `,purge messages <user> <amount>` | Purge messages from a specific user |
+| `,nuke` | Clone and replace the current channel |
+| `,slowmode <seconds>` | Set channel slowmode |
+| `,lock [channel]` | Lock a channel |
+| `,unlock [channel]` | Unlock a channel |
+
+## Member Management
+
+| Command | Description |
+|---|---|
+| `,nick <user> <name>` | Change a member's nickname |
+| `,forcenick set <user> <name>` | Force a persistent nickname |
+| `,forcenick remove <user>` | Remove a forced nickname |
+| `,drag <user> [channel]` | Move a user to another voice channel |
+| `,stripstaff <user>` | Remove all staff roles from a user |
+| `,clearinvites` | Delete all server invites |
+
+## Role Management
+
+| Command | Description |
+|---|---|
+| `,role <user> <@role>` | Add or remove a role |
+| `,role create <name>` | Create a new role |
+| `,role delete <@role>` | Delete a role |
+| `,role rename <@role> <name>` | Rename a role |
+| `,role color <@role> <hex>` | Change a role's color |
+| `,role icon <@role> <emoji/url>` | Set a role icon |
+| `,role hoist <@role>` | Toggle role hoisting |
+| `,role mentionable <@role>` | Toggle role mentionability |
+| `,role has <@role>` | List members with a role |
+| `,role restore <user>` | Restore a user's previous roles |
+| `,role gradient <@role1> <@role2> <count>` | Create gradient-colored roles |

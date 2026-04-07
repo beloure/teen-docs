@@ -1,0 +1,50 @@
+---
+title: AutoMod
+description: Automatically filter messages and protect your chat.
+icon: robot
+---
+
+import { Tip } from "mintlify/components";
+
+# AutoMod
+
+Teen's automod automatically filters unwanted content from your server without manual intervention.
+
+## Mass Mentions
+
+Prevent users from spamming mentions to ping-bomb your members.
+
+| Command | Description |
+|---|---|
+| `,massmentions enable` | Enable mass mention filtering |
+| `,massmentions disable` | Disable mass mention filtering |
+| `,massmentions threshold <number>` | Set the mention limit per message |
+| `,massmentions punishment <action>` | Set punishment (delete, mute, kick, ban) |
+
+## Word Filter
+
+Block specific words or phrases from being sent in your server.
+
+| Command | Description |
+|---|---|
+| `,filter add <word>` | Add a word to the filter |
+| `,filter remove <word>` | Remove a word from the filter |
+| `,filter list` | View all filtered words |
+| `,filter clear` | Clear the entire word filter |
+
+<Tip>
+  The word filter supports partial matches — filtering "badword" will also catch "mybadword123".
+</Tip>
+
+## Disable Commands
+
+Restrict specific commands or entire modules from being used in your server.
+
+| Command | Description |
+|---|---|
+| `,disablecommand <command>` | Disable a specific command |
+| `,enablecommand <command>` | Re-enable a command |
+| `,disablecommand list` | View all disabled commands |
+| `,disablemodule <module>` | Disable an entire command module |
+| `,enablemodule <module>` | Re-enable a module |
+| `,disablemodule list` | View all disabled modules |

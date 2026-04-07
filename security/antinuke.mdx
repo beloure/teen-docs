@@ -1,0 +1,54 @@
+---
+title: Antinuke
+description: Protect your server from nukes, raids, and unauthorized changes.
+icon: shield-halved
+---
+
+import { Steps, Warning, Tip } from "mintlify/components";
+
+# Antinuke
+
+Teen's antinuke system monitors destructive actions in real-time and automatically punishes users who exceed configured thresholds — even if they have admin permissions.
+
+<Warning>
+  Antinuke requires Teen to have the highest role in your server to function properly.
+</Warning>
+
+## Setup
+
+<Steps>
+  <Step title="Enable antinuke">
+    ```
+    ,antinuke enable
+    ```
+  </Step>
+  <Step title="Configure thresholds">
+    Set the maximum number of actions allowed before punishment kicks in.
+  </Step>
+  <Step title="Whitelist trusted users">
+    Add server admins or trusted bots so they aren't flagged.
+  </Step>
+</Steps>
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `,antinuke enable` | Enable the antinuke system |
+| `,antinuke disable` | Disable the antinuke system |
+| `,antinuke settings` | View current antinuke configuration |
+| `,antinuke whitelist <user>` | Whitelist a user from antinuke checks |
+| `,antinuke unwhitelist <user>` | Remove a user from the whitelist |
+
+## What It Monitors
+
+- **Channel creation/deletion** — prevents mass channel nuking
+- **Role creation/deletion** — stops role wipes
+- **Bans** — catches mass ban attempts
+- **Kicks** — detects mass kick raids
+- **Webhook creation** — blocks webhook spam attacks
+- **Server setting changes** — protects server name, icon, and vanity
+
+<Tip>
+  Antinuke works best when combined with **logging** so you can review flagged actions after the fact.
+</Tip>

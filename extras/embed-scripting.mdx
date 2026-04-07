@@ -1,0 +1,81 @@
+---
+title: Embed Scripting
+description: Build custom embeds with variables for messages and autoresponders.
+icon: code
+---
+
+import { Info, Tip } from "mintlify/components";
+
+# Embed Scripting
+
+Build rich embeds for welcome messages, goodbye messages, autoresponders, and custom commands using Teen's embed scripting syntax.
+
+## Syntax
+
+Wrap your embed in `{embed}$v2 ... {/embed}` tags:
+
+```
+{embed}$v2
+$title: Welcome!
+$description: Thanks for joining **{guild.name}**!
+$color: #16A34A
+$thumbnail: {user.avatar}
+$footer: Member #{guild.count}
+{/embed}
+```
+
+## Fields
+
+| Field | Description |
+|---|---|
+| `$title:` | Embed title |
+| `$description:` | Embed body text |
+| `$color:` | Hex color code |
+| `$thumbnail:` | Small image (top right) |
+| `$image:` | Large image (bottom) |
+| `$footer:` | Footer text |
+| `$author:` | Author name (top) |
+| `$author_icon:` | Author icon URL |
+| `$timestamp:` | Add a timestamp |
+
+## Variables
+
+Use these anywhere in your embed or plain message:
+
+### User Variables
+| Variable | Output |
+|---|---|
+| `{user}` | Username |
+| `{user.mention}` | @mention |
+| `{user.id}` | User ID |
+| `{user.avatar}` | Avatar URL |
+| `{user.created_at}` | Account creation date |
+| `{user.joined_at}` | Server join date |
+
+### Server Variables
+| Variable | Output |
+|---|---|
+| `{guild.name}` | Server name |
+| `{guild.id}` | Server ID |
+| `{guild.count}` | Member count |
+| `{guild.icon}` | Server icon URL |
+| `{guild.created_at}` | Server creation date |
+| `{guild.boost_count}` | Number of boosts |
+
+### Channel Variables
+| Variable | Output |
+|---|---|
+| `{channel}` | Channel name |
+| `{channel.mention}` | #channel mention |
+| `{channel.id}` | Channel ID |
+
+## Where You Can Use Embeds
+
+- Welcome messages (`,welcome add`)
+- Goodbye messages (`,goodbye add`)
+- Auto responders (`,autorespond add`)
+- Custom embeds (`,embed`)
+
+<Tip>
+  You can combine plain text with embeds — just put your text before the `{embed}$v2` tag.
+</Tip>

@@ -1,0 +1,33 @@
+---
+title: VoiceMaster
+description: Let members create and manage temporary voice channels.
+icon: microphone
+---
+
+# VoiceMaster
+
+VoiceMaster lets members create their own temporary voice channels by joining a designated "hub" channel. The channel is automatically deleted when everyone leaves.
+
+## How It Works
+
+1. An admin sets up a VoiceMaster hub channel
+2. When a member joins the hub, a new voice channel is created for them
+3. The creator can manage their channel (rename, set limit, lock, etc.) using buttons
+4. When the channel is empty, it's automatically deleted
+
+## Controls
+
+When a member creates a voice channel, they get an interactive panel with buttons to:
+
+- **Lock / Unlock** the channel
+- **Rename** the channel
+- **Set user limit**
+- **Hide / Reveal** the channel
+- **Kick** a user from the channel
+- **Claim** ownership if the original creator leaves
+
+import { Info } from "mintlify/components";
+
+<Info>
+  VoiceMaster channels are fully temporary — they don't persist after the bot restarts or when everyone leaves.
+</Info>

@@ -1,0 +1,54 @@
+---
+title: Moderation Tools
+description: Keep your server safe with Teen's moderation toolkit.
+icon: gavel
+---
+
+import { Info } from "mintlify/components";
+
+# Security Moderation
+
+Beyond antinuke, Teen provides granular moderation controls to handle individual troublemakers and ongoing threats.
+
+## Force Nickname
+
+Lock a user's nickname so they can't change it.
+
+| Command | Description |
+|---|---|
+| `,forcenick set <user> <name>` | Force a nickname on a user |
+| `,forcenick remove <user>` | Remove a forced nickname |
+| `,forcenick list` | View all forced nicknames |
+
+## Hardban
+
+Permanently ban a user — they cannot be unbanned through normal means.
+
+| Command | Description |
+|---|---|
+| `,hardban <user> [reason]` | Permanently ban a user |
+| `,hardban list` | View all hardbanned users |
+| `,hardban remove <user>` | Remove a hardban |
+
+## Strip Staff
+
+Quickly remove all staff roles from a user in one command.
+
+```
+,stripstaff @user
+```
+
+## Lock / Unlock
+
+Lock channels to prevent members from sending messages.
+
+| Command | Description |
+|---|---|
+| `,lock [channel]` | Lock a channel |
+| `,unlock [channel]` | Unlock a channel |
+| `,lockchannel <channel>` | Lock a specific channel |
+| `,unlockchannel <channel>` | Unlock a specific channel |
+
+<Info>
+  All moderation actions are logged if you have logging enabled. See the [Logging](/setup/logging) page.
+</Info>

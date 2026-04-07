@@ -1,0 +1,32 @@
+---
+title: Starboard
+description: Highlight the best messages in your server.
+icon: star
+---
+
+# Starboard
+
+When a message gets enough star reactions, it gets posted to your starboard channel automatically.
+
+## Setup
+
+```
+,starboard set #starboard
+```
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `,starboard set <#channel>` | Set the starboard channel |
+| `,starboard threshold <number>` | Set the minimum stars required (default: 3) |
+| `,starboard emoji <emoji>` | Change the reaction emoji |
+| `,starboard color <hex>` | Change the embed color |
+| `,starboard attachments <on/off>` | Include attachments in starboard posts |
+| `,starboard jumpurl <on/off>` | Include a jump link to the original message |
+
+import { Tip } from "mintlify/components";
+
+<Tip>
+  Teen also has **Skullboard** (`,skullboard`) and **Clownboard** (`,clownboard`) for custom reaction boards with different emojis.
+</Tip>

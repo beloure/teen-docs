@@ -1,0 +1,111 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Teen",
+  "colors": {
+    "primary": "#16A34A",
+    "light": "#07C983",
+    "dark": "#15803D"
+  },
+  "favicon": "https://media.discordapp.net/attachments/1482650245996478466/1491166435119075458/sfvfkr1.png?ex=69d6b476&is=69d562f6&hm=397226daa64cd54ebafe06e4409310c623d3bdfb02609f81c294a2c39ed733f0&=&format=webp&quality=lossless&width=563&height=563",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "https://discord.gg/teen"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Invite Teen",
+      "href": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot"
+    }
+  },
+  "navigation": {
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": [
+          "getting-started/welcome",
+          "getting-started/features",
+          "getting-started/prefix"
+        ]
+      },
+      {
+        "group": "Security",
+        "pages": [
+          "security/antinuke",
+          "security/moderation",
+          "security/automod"
+        ]
+      },
+      {
+        "group": "Server Setup",
+        "pages": [
+          "setup/welcome-goodbye",
+          "setup/autorole",
+          "setup/starboard",
+          "setup/voicemaster",
+          "setup/tickets",
+          "setup/logging",
+          "setup/autorespond"
+        ]
+      },
+      {
+        "group": "Music",
+        "pages": [
+          "music/playing",
+          "music/queue",
+          "music/filters"
+        ]
+      },
+      {
+        "group": "Moderation",
+        "pages": [
+          "moderation/commands",
+          "moderation/cases",
+          "moderation/permissions"
+        ]
+      },
+      {
+        "group": "Integrations",
+        "pages": [
+          "integrations/lastfm",
+          "integrations/tiktok"
+        ]
+      },
+      {
+        "group": "Extras",
+        "pages": [
+          "extras/fun",
+          "extras/utilities",
+          "extras/embed-scripting"
+        ]
+      }
+    ]
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
+    ]
+  },
+  "footer": {
+    "socials": {
+      "discord": "https://discord.gg/teen",
+      "github": "https://github.com/beloure"
+    }
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "seo": {
+    "indexHiddenPages": false
+  }
+}
