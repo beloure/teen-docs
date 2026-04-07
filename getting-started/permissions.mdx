@@ -1,0 +1,65 @@
+---
+title: Permissions
+description: Understanding permission levels and how they affect command access.
+icon: key
+---
+
+import { Info, Warning } from "mintlify/components";
+
+# Permissions
+
+Teen uses a combination of Discord's built-in permission system and its own internal permission levels to determine who can run what.
+
+<Warning>
+  Do not remove any permissions from Teen's bot role. The bot was invited with the exact permissions it needs — you can add more, but removing any may cause features to break.
+</Warning>
+
+## Permission Levels
+
+### Server Owner
+
+The highest level of access. Certain commands are **exclusively** available to the server owner and cannot be delegated.
+
+| Command | Description |
+|---|---|
+| `,setup` | Run the initial server setup wizard |
+| `,customize avatar` | Change the bot's server avatar |
+| `,customize banner` | Change the bot's server banner |
+| `,customize bio` | Change the bot's server bio |
+| `,customize reset` | Reset the bot's server profile |
+| `,antinuke admin` | Add or remove antinuke admins |
+| `,antinuke reset` | Reset all antinuke settings |
+| `,unbanall` | Unban every banned user in the server |
+
+### Antinuke Admin
+
+Antinuke admins are appointed by the server owner using `,antinuke admin <member>`. They can:
+
+- Enable and disable antinuke
+- Change antinuke module configurations (thresholds, punishments, window)
+- Whitelist users and bots to bypass antinuke
+
+<Warning>
+  Antinuke admins and whitelisted users **will not trigger antinuke** under any circumstances. Be cautious about who you grant this to.
+</Warning>
+
+### Discord Permissions
+
+Most commands rely on standard Discord permissions. For example:
+
+| Permission | Grants Access To |
+|---|---|
+| Administrator | Prefix changes, filter/automod config, command disabling |
+| Manage Server | Welcome/goodbye, logging, tickets, boards, integrations, automation |
+| Manage Roles | Jail, unjail, booster role management |
+| Manage Channels | Giveaways, ticket setup |
+
+Each command's required permission is listed in its respective documentation page.
+
+## Fake Permissions
+
+Fake permissions (custom permission overrides) are not yet available. This feature will be added in a future update.
+
+<Info>
+  For now, all permission checks use Discord's native permission system alongside the server owner and antinuke admin levels described above.
+</Info>
