@@ -1,50 +1,64 @@
 ---
 title: AutoMod
-description: Automatically filter messages and protect your chat.
+description: Word filter and mass mention protection.
 icon: robot
 ---
 
-import { Tip } from "mintlify/components";
-
 # AutoMod
 
-Teen's automod automatically filters unwanted content from your server without manual intervention.
+Teen's automod system includes a **word filter** and **mass mention filter**, both configured through the `,filter` command. Each filter can be set up with custom punishments, channel restrictions, and role exemptions.
 
-## Mass Mentions
+## Opening the Filter Panel
 
-Prevent users from spamming mentions to ping-bomb your members.
+```
+,filter
+```
 
-| Command | Description |
-|---|---|
-| `,massmentions enable` | Enable mass mention filtering |
-| `,massmentions disable` | Disable mass mention filtering |
-| `,massmentions threshold <number>` | Set the mention limit per message |
-| `,massmentions punishment <action>` | Set punishment (delete, mute, kick, ban) |
+This opens an interactive configuration panel where you can set up both the word filter and mass mention filter through a button-based UI.
 
 ## Word Filter
 
-Block specific words or phrases from being sent in your server.
+The word filter blocks messages containing specific words or phrases.
 
-| Command | Description |
+**Configuration options (via interactive panel):**
+
+- **Toggle** — enable or disable the filter
+- **Blocked Words** — add, remove, or view blocked words
+- **Channels** — restrict to specific channels or apply to all
+- **Exempt Roles/Users** — exclude certain roles or users from filtering
+- **Punishment** — `ban`, `kick`, `strip`, `jail`, or `timeout`
+- **Duration** — set timeout/jail duration when applicable
+
+The word filter supports partial matching — blocking `badword` will also catch `mybadword123`.
+
+## Mass Mention Filter
+
+Prevents users from spamming mentions. Uses a **10-second rolling window** to detect mention spam across multiple messages.
+
+### Commands
+
+| Command | Description | Permission |
+|---|---|---|
+| `,filter massmentions` | Open the mass mention config panel | Administrator |
+| `,filter massmentions on` | Enable the filter | Administrator |
+| `,filter massmentions off` | Disable the filter | Administrator |
+| `,filter massmentions threshold <number>` | Set the mention limit (1–50) | Administrator |
+| `,filter massmentions channel <all \| #channel>` | Set filtered channels | Administrator |
+
+Aliases: `massmention`, `mm`
+
+### Configuration (via interactive panel)
+
+Same options as the word filter: toggle, threshold, channels, exempt roles/users, punishment, and duration.
+
+## Punishments
+
+Both filters support the following punishments:
+
+| Punishment | Description |
 |---|---|
-| `,filter add <word>` | Add a word to the filter |
-| `,filter remove <word>` | Remove a word from the filter |
-| `,filter list` | View all filtered words |
-| `,filter clear` | Clear the entire word filter |
-
-<Tip>
-  The word filter supports partial matches — filtering "badword" will also catch "mybadword123".
-</Tip>
-
-## Disable Commands
-
-Restrict specific commands or entire modules from being used in your server.
-
-| Command | Description |
-|---|---|
-| `,disablecommand <command>` | Disable a specific command |
-| `,enablecommand <command>` | Re-enable a command |
-| `,disablecommand list` | View all disabled commands |
-| `,disablemodule <module>` | Disable an entire command module |
-| `,enablemodule <module>` | Re-enable a module |
-| `,disablemodule list` | View all disabled modules |
+| `ban` | Permanently ban the user |
+| `kick` | Kick the user from the server |
+| `strip` | Remove all roles from the user |
+| `jail` | Jail the user (requires jail setup) |
+| `timeout` | Timeout the user for a set duration |

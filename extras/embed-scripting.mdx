@@ -4,11 +4,9 @@ description: Build custom embeds with variables for messages and autoresponders.
 icon: code
 ---
 
-import { Info, Tip } from "mintlify/components";
-
 # Embed Scripting
 
-Build rich embeds for welcome messages, goodbye messages, autoresponders, and custom commands using Teen's embed scripting syntax.
+Build rich embeds for welcome messages, goodbye messages, autoresponders, and autoposts using Teen's embed syntax.
 
 ## Syntax
 
@@ -43,6 +41,7 @@ $footer: Member #{guild.count}
 Use these anywhere in your embed or plain message:
 
 ### User Variables
+
 | Variable | Output |
 |---|---|
 | `{user}` | Username |
@@ -53,6 +52,7 @@ Use these anywhere in your embed or plain message:
 | `{user.joined_at}` | Server join date |
 
 ### Server Variables
+
 | Variable | Output |
 |---|---|
 | `{guild.name}` | Server name |
@@ -63,6 +63,7 @@ Use these anywhere in your embed or plain message:
 | `{guild.boost_count}` | Number of boosts |
 
 ### Channel Variables
+
 | Variable | Output |
 |---|---|
 | `{channel}` | Channel name |
@@ -74,8 +75,7 @@ Use these anywhere in your embed or plain message:
 - Welcome messages (`,welcome add`)
 - Goodbye messages (`,goodbye add`)
 - Auto responders (`,autorespond add`)
+- Auto posts (`,autopost add`)
 - Custom embeds (`,embed`)
 
-<Tip>
-  You can combine plain text with embeds — just put your text before the `{embed}$v2` tag.
-</Tip>
+You can combine plain text with embeds by placing text before the `{embed}$v2` tag.

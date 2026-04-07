@@ -1,0 +1,54 @@
+---
+title: Auto React
+description: Automatically react to messages matching a trigger.
+icon: face-smile
+---
+
+# Auto React
+
+Automatically add emoji reactions to messages that match a keyword or phrase.
+
+## Commands
+
+| Command | Description | Permission |
+|---|---|---|
+| `,autoreact add <trigger>, <emoji>` | Add an auto-reaction rule | Manage Server |
+| `,autoreact remove <trigger>` | Remove a rule | Manage Server |
+| `,autoreact update <trigger>, <value>` | Update a rule's emoji, channel, or role | Manage Server |
+| `,autoreact list` | View all rules | — |
+| `,autoreact reset` | Remove all rules | Manage Server |
+
+Alias: `ar`
+
+## Syntax
+
+The trigger and emoji are separated by a comma:
+
+```
+,autoreact add hello, 👋
+,autoreact add good morning, ☀️
+```
+
+## Flags
+
+| Flag | Description |
+|---|---|
+| `--strict` | Require exact match (not partial) |
+
+```
+,autoreact add gm, 🌅 --strict
+```
+
+## Targeting
+
+Restrict a rule to a specific channel or require a specific role:
+
+```
+,autoreact add hello, 👋 #general
+,autoreact add hello, 👋 @Members
+```
+
+## Limits
+
+- Maximum **5 reactions** per message across all rules
+- **2-second cooldown** per user per trigger to prevent spam

@@ -1,0 +1,79 @@
+---
+title: Auto Respond
+description: Automatically reply to messages matching a trigger.
+icon: reply
+---
+
+# Auto Respond
+
+Set up automatic responses that trigger when a message matches a keyword or phrase. Supports plain text, embeds, and various targeting options.
+
+## Commands
+
+| Command | Description | Permission |
+|---|---|---|
+| `,autorespond add <trigger>, <response>` | Add an auto-response rule | Manage Server |
+| `,autorespond remove <trigger>` | Remove a rule | Manage Server |
+| `,autorespond update <trigger>, <value>` | Update an existing rule | Manage Server |
+| `,autorespond list` | View all rules | — |
+| `,autorespond reset` | Remove all rules | Manage Server |
+
+Alias: `asr`
+
+## Syntax
+
+The trigger and response are separated by a comma:
+
+```
+,autorespond add hello, Hey there!
+,autorespond add goodnight, Sleep well {user.mention}!
+```
+
+## Flags
+
+Append flags to the `,autorespond add` command:
+
+| Flag | Description |
+|---|---|
+| `--strict` | Require exact match (not partial) |
+| `--reply` | Reply to the triggering message instead of sending a new one |
+| `--dm` | Send the response as a DM to the user |
+
+### Examples
+
+```
+,autorespond add ping, pong --reply
+,autorespond add rules, Check the rules channel! --strict
+,autorespond add welcome, Welcome to the server! --dm
+```
+
+## Targeting
+
+You can restrict a rule to a specific channel or require a specific role:
+
+```
+,autorespond add hello, Hi there! #general
+,autorespond add hello, Hi there! @Members
+```
+
+## Updating Rules
+
+Use `,autorespond update` to change the response, channel, or role for an existing rule:
+
+```
+,autorespond update hello, New response text
+,autorespond update hello, #new-channel
+,autorespond update hello, @NewRole
+```
+
+## Embed Responses
+
+Use [embed scripting](/extras/embed-scripting) in your response:
+
+```
+,autorespond add faq, {embed}$v2
+$title: FAQ
+$description: Check out our frequently asked questions!
+$color: #16A34A
+{/embed}
+```

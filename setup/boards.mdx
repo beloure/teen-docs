@@ -1,0 +1,59 @@
+---
+title: Boards
+description: Starboard, clownboard, and skullboard reaction tracking.
+icon: star
+---
+
+# Boards
+
+Teen supports three reaction-tracking boards: **Starboard**, **Clownboard**, and **Skullboard**. Each works the same way — when a message reaches the reaction threshold, it gets posted to the configured board channel.
+
+## Overview
+
+| Board | Default Emoji | Default Color | Alias |
+|---|---|---|---|
+| Starboard | ⭐ | — | — |
+| Clownboard | 🤡 | `#FF0000` | `cb` |
+| Skullboard | 💀 | `#131416` | `sb` |
+
+## Commands
+
+All three boards share the same subcommand structure. Replace `starboard` with `clownboard` or `skullboard` as needed.
+
+| Command | Description | Permission |
+|---|---|---|
+| `,starboard set <#channel>` | Set the board channel | Manage Server |
+| `,starboard threshold <number>` | Set the reaction threshold (minimum 1) | Manage Server |
+| `,starboard emoji <emoji>` | Change the tracked emoji | Manage Server |
+| `,starboard color <hex>` | Set the embed color | Manage Server |
+| `,starboard attachments` | Toggle attachment display | Manage Server |
+| `,starboard jumpurl` | Toggle jump URL display | Manage Server |
+| `,starboard timestamp` | Toggle timestamp display | Manage Server |
+| `,starboard toggle` | Pause or resume the board | Manage Server |
+| `,starboard ignore <#channels>` | Toggle ignored channels | Manage Server |
+| `,starboard ignorelist` | View all ignored channels | — |
+| `,starboard config` | View current configuration | — |
+| `,starboard reset` | Reset all settings and clear records | Manage Server |
+
+## Setup Example
+
+```
+,starboard set #starboard
+,starboard threshold 3
+,starboard emoji ⭐
+```
+
+```
+,clownboard set #clownboard
+,clownboard threshold 5
+,clownboard emoji 🤡
+```
+
+```
+,skullboard set #skullboard
+,skullboard threshold 3
+```
+
+## How It Works
+
+When a message receives enough reactions of the configured emoji to meet the threshold, it is automatically reposted to the board channel as an embed. The embed updates as more reactions are added. Self-reactions are not counted.

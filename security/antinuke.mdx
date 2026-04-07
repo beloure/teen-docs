@@ -4,51 +4,98 @@ description: Protect your server from nukes, raids, and unauthorized changes.
 icon: shield-halved
 ---
 
-import { Steps, Warning, Tip } from "mintlify/components";
-
 # Antinuke
 
-Teen's antinuke system monitors destructive actions in real-time and automatically punishes users who exceed configured thresholds — even if they have admin permissions.
+The antinuke system monitors destructive actions in real-time and automatically punishes users who exceed configured thresholds — even if they have admin permissions.
 
-<Warning>
-  Antinuke requires Teen to have the highest role in your server to function properly.
-</Warning>
+Teen must have the **highest role** in your server for antinuke to function properly.
 
-## Setup
+## Enabling
 
-<Steps>
-  <Step title="Enable antinuke">
-    ```
-    ,antinuke enable
-    ```
-  </Step>
-  <Step title="Configure thresholds">
-    Set the maximum number of actions allowed before punishment kicks in.
-  </Step>
-  <Step title="Whitelist trusted users">
-    Add server admins or trusted bots so they aren't flagged.
-  </Step>
-</Steps>
+```
+,antinuke on
+,antinuke off
+```
 
-## Commands
+## Modules
+
+Each module protects against a specific type of destructive action. Configure them individually using the `do:` and `threshold:` syntax.
+
+| Module | Description | Supports Threshold |
+|---|---|---|
+| `channel` | Channel creation and deletion | Yes |
+| `roles` | Role creation and deletion | Yes |
+| `ban` | Mass bans | Yes |
+| `kick` | Mass kicks | Yes |
+| `webhook` | Webhook creation and deletion | Yes |
+| `permissions` | Dangerous permission changes | Yes |
+| `emoji` | Emoji creation and deletion | Yes |
+| `botadd` | Unauthorized bot additions | No |
+| `vanity` | Vanity URL changes | No |
+
+### Configuration Syntax
+
+```
+,antinuke <module> do:<punishment> threshold:<number>
+```
+
+**Punishments:** `ban`, `kick`, `strip`, `jail`
+
+### Examples
+
+```
+,antinuke ban do:ban threshold:3
+,antinuke channel do:strip threshold:5
+,antinuke botadd do:kick
+,antinuke vanity do:ban
+```
+
+Modules without threshold support (botadd, vanity) trigger on the first offense.
+
+## Threshold Window
+
+Set the time window in which thresholds are counted:
+
+```
+,antinuke window <duration>
+```
+
+Duration examples: `30s`, `5m`, `1h`, `1d`
+
+## Whitelist
+
+Temporarily whitelist a user to bypass antinuke checks. Whitelist entries expire after **5 minutes**.
 
 | Command | Description |
 |---|---|
-| `,antinuke enable` | Enable the antinuke system |
-| `,antinuke disable` | Disable the antinuke system |
-| `,antinuke settings` | View current antinuke configuration |
-| `,antinuke whitelist <user>` | Whitelist a user from antinuke checks |
-| `,antinuke unwhitelist <user>` | Remove a user from the whitelist |
+| `,antinuke whitelist <user>` | Toggle whitelist for a user |
+| `,antinuke whitelist add <user>` | Add user to whitelist |
+| `,antinuke whitelist remove <user>` | Remove user from whitelist |
+| `,antinuke whitelisted` | View whitelisted users |
 
-## What It Monitors
+## Admins
 
-- **Channel creation/deletion** — prevents mass channel nuking
-- **Role creation/deletion** — stops role wipes
-- **Bans** — catches mass ban attempts
-- **Kicks** — detects mass kick raids
-- **Webhook creation** — blocks webhook spam attacks
-- **Server setting changes** — protects server name, icon, and vanity
+Antinuke admins can manage antinuke settings. Only the **server owner** can add or remove admins.
 
-<Tip>
-  Antinuke works best when combined with **logging** so you can review flagged actions after the fact.
-</Tip>
+| Command | Description |
+|---|---|
+| `,antinuke admin <member>` | Toggle antinuke admin |
+| `,antinuke admins` | View all antinuke admins |
+
+## Other Commands
+
+| Command | Description |
+|---|---|
+| `,antinuke config` | Interactive configuration panel |
+| `,antinuke list` | View all modules, admins, and whitelist |
+| `,antinuke reset` | Reset all module settings |
+| `,antinuke reset all` | Reset everything including admins and whitelist |
+
+## How It Works
+
+When a user exceeds a module's threshold within the configured window, Teen will:
+
+1. Punish the user with the configured action (ban, kick, strip roles, or jail)
+2. Attempt to revert the destructive actions (restore deleted channels, roles, emojis, unban users, etc.)
+3. DM the punished user with details
+4. Notify the server owner

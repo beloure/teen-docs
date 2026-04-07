@@ -1,0 +1,68 @@
+---
+title: Giveaways
+description: Run giveaways with entry requirements and winner management.
+icon: gift
+---
+
+# Giveaways
+
+Run interactive giveaways with button entries, role requirements, and automatic winner selection.
+
+## Starting a Giveaway
+
+```
+,giveaway start <#channel> <duration> <winners> <prize>
+```
+
+| Parameter | Description |
+|---|---|
+| `#channel` | Channel to post the giveaway in (defaults to current) |
+| `duration` | How long the giveaway lasts (`10m`, `2h`, `3d`) |
+| `winners` | Number of winners (1–20) |
+| `prize` | What the winner receives |
+
+### Example
+
+```
+,giveaway start #giveaways 1d 1 Nitro Classic
+,gw start #giveaways 12h 3 $10 Gift Card
+```
+
+Duration must be between **1 minute** and **30 days**.
+
+## Managing Giveaways
+
+| Command | Description | Permission |
+|---|---|---|
+| `,giveaway end [link or ID]` | End a giveaway early | Manage Channels |
+| `,giveaway reroll [link or ID] [winners]` | Reroll winners of an ended giveaway | Manage Channels |
+| `,giveaway cancel [link or ID]` | Cancel without selecting winners | Manage Channels |
+
+Aliases: `giveaways`, `gw`
+
+You can reference a giveaway by replying to it, providing a message link, or a message ID.
+
+## Editing a Giveaway
+
+| Command | Description | Permission |
+|---|---|---|
+| `,giveaway edit prize [link] <prize>` | Change the prize | Manage Channels |
+| `,giveaway edit winners [link] <count>` | Change the winner count | Manage Channels |
+| `,giveaway edit image [link] <url>` | Add or change an image | Manage Channels |
+| `,giveaway edit requiredroles [link] <roles>` | Set required roles for entry | Manage Channels |
+
+## Entry Requirements
+
+When creating or editing a giveaway, you can add entry restrictions:
+
+- **Required Roles** — members must have specific roles to enter
+- **Minimum Account Age** — account must be a certain number of days old
+- **Minimum Server Stay** — member must have been in the server for a certain number of days
+
+## How It Works
+
+1. Members click the 🎉 button to enter or leave
+2. Entry requirements are checked when a member tries to enter
+3. When the giveaway ends (or is ended early), winners are randomly selected
+4. Winners are mentioned in a follow-up message
+5. The original giveaway embed is updated to show results

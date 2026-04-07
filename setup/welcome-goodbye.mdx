@@ -4,62 +4,85 @@ description: Greet new members and send farewell messages.
 icon: door-open
 ---
 
-import { Steps, Tip, Info } from "mintlify/components";
-
 # Welcome & Goodbye Messages
 
-Set up automatic messages when members join or leave your server. Supports embeds, variables, and multiple channels.
+Set up automatic messages when members join or leave your server. Each supports up to **3 messages** per server, custom channels, auto-delete timers, and [embed scripting](/extras/embed-scripting).
 
 ## Welcome Messages
 
-<Steps>
-  <Step title="Add a welcome channel">
-    ```
-    ,welcome add #welcome {embed}$v2
-    $title: Welcome {user.mention}!
-    $description: You are member **#{guild.count}**. Enjoy your stay!
-    $color: #16A34A
-    {/embed}
-    ```
-  </Step>
-  <Step title="Test it">
-    ```
-    ,welcome test
-    ```
-  </Step>
-</Steps>
-
 ### Commands
 
-| Command | Description |
+| Command | Description | Permission |
+|---|---|---|
+| `,welcome add [#channel] <message>` | Add a welcome message (defaults to current channel) | Manage Server |
+| `,welcome remove <number>` | Remove a welcome message by its number | Manage Server |
+| `,welcome list` | View all configured welcome messages | Manage Server |
+| `,welcome test [number] [#channel]` | Preview a welcome message | Manage Server |
+| `,welcome variables` | View all supported template variables | Manage Server |
+
+### Flags
+
+Append these to your `,welcome add` command:
+
+| Flag | Description |
 |---|---|
-| `,welcome add <#channel> <message>` | Add a welcome message to a channel |
-| `,welcome remove <#channel>` | Remove a welcome message |
-| `,welcome list` | View all configured welcome messages |
-| `,welcome test` | Send a test welcome message |
-| `,welcome variables` | View all available variables |
+| `--delete <seconds>` | Auto-delete the message after the specified time |
+| `--pending` | Only send after the member passes onboarding/screening |
+
+### Example
+
+```
+,welcome add #welcome Welcome {user.mention}! You are member #{guild.count}. --delete 60
+```
+
+With an embed:
+
+```
+,welcome add #welcome {embed}$v2
+$title: Welcome!
+$description: Hey {user.mention}, welcome to **{guild.name}**!
+$color: #16A34A
+$thumbnail: {user.avatar}
+{/embed}
+```
 
 ## Goodbye Messages
 
-| Command | Description |
+### Commands
+
+| Command | Description | Permission |
+|---|---|---|
+| `,goodbye add [#channel] <message>` | Add a goodbye message | Manage Server |
+| `,goodbye remove <number>` | Remove a goodbye message by its number | Manage Server |
+| `,goodbye list` | View all configured goodbye messages | Manage Server |
+| `,goodbye test [number] [#channel]` | Preview a goodbye message | Manage Server |
+| `,goodbye variables` | View all supported template variables | Manage Server |
+
+Alias: `bye`
+
+### Flags
+
+| Flag | Description |
 |---|---|
-| `,goodbye add <#channel> <message>` | Add a goodbye message |
-| `,goodbye remove <#channel>` | Remove a goodbye message |
-| `,goodbye list` | View all configured goodbye messages |
-| `,goodbye test` | Send a test goodbye message |
-| `,goodbye variables` | View all available variables |
+| `--delete <seconds>` | Auto-delete the message after the specified time |
 
-<Info>
-  Both welcome and goodbye messages support [Embed Scripting](/extras/embed-scripting) for rich formatting.
-</Info>
+## Variables
 
-## Common Variables
+Use these in any welcome or goodbye message template:
 
 | Variable | Output |
 |---|---|
 | `{user}` | Username |
 | `{user.mention}` | @mention |
+| `{user.id}` | User ID |
 | `{user.avatar}` | Avatar URL |
+| `{user.created_at}` | Account creation date |
+| `{user.joined_at}` | Server join date |
 | `{guild.name}` | Server name |
+| `{guild.id}` | Server ID |
 | `{guild.count}` | Member count |
 | `{guild.icon}` | Server icon URL |
+| `{channel}` | Channel name |
+| `{channel.mention}` | Channel mention |
+
+Run `,welcome variables` or `,goodbye variables` for the full list.

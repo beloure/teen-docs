@@ -1,0 +1,50 @@
+---
+title: Jail
+description: Strip roles and confine members to a restricted channel.
+icon: lock
+---
+
+# Jail
+
+The jail system strips all roles from a member and confines them to a restricted jail channel. Jailed members can only see the jail channel until they are released.
+
+## Setup
+
+```
+,jail setup
+```
+
+This creates a jail role and jail channel with the correct permission overrides. Requires **Administrator** permission.
+
+## Commands
+
+| Command | Description | Permission |
+|---|---|---|
+| `,jail <user> [duration] [reason]` | Jail a member | Manage Roles |
+| `,unjail <user>` | Release a jailed member | Manage Roles |
+| `,jaillist` | List all currently jailed members | Manage Roles |
+| `,jail setup` | Create the jail role and channel | Administrator |
+| `,jail reset` | Remove jail config and convert jailed members to timeouts | Administrator |
+
+Aliases: `j` (jail), `uj` (unjail), `jailed` / `jl` (jaillist)
+
+## Duration
+
+You can specify a duration when jailing someone. The member will be automatically unjailed when the time expires.
+
+```
+,jail @user 2h Spamming
+,jail @user 1d Breaking rules
+,jail @user 30m Cool down
+```
+
+Duration formats: `s` (seconds), `m` (minutes), `h` (hours), `d` (days)
+
+## Behavior
+
+- All roles are saved and stripped when a member is jailed
+- Roles are restored when unjailed
+- If a jailed member leaves and rejoins, the jail is reapplied
+- If the jail role is manually removed, the system detects it and re-syncs
+- The jailed member receives a DM with the reason and duration
+- There is a 3-second cooldown between jail/unjail actions per server

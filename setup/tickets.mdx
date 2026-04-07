@@ -8,18 +8,36 @@ icon: ticket
 
 Create a ticket system so members can open private support channels with your staff.
 
-## Commands
+## Setup
+
+```
+,ticket setup
+```
+
+This launches an interactive wizard that walks you through:
+
+1. **Support Role** — which role can manage tickets
+2. **Category** — where ticket channels are created
+3. **Log Channel** — where ticket transcripts are sent
+4. **Panel Message** — default text, custom text, or a custom embed
+5. **Panel Type** — buttons or a dropdown menu
+6. **Options** — configure each button/dropdown option with a label, emoji, description, and per-option ticket message
+
+Requires **Manage Server** permission.
+
+## Ticket Commands
+
+These commands are used inside an open ticket channel:
 
 | Command | Description |
 |---|---|
-| `,ticket setup` | Set up the ticket system with a panel |
-| `,ticket add <@user>` | Add a user to the current ticket |
-| `,ticket remove <@user>` | Remove a user from the current ticket |
 | `,ticket close` | Close the current ticket |
-| `,ticket category <category>` | Set the category for new tickets |
+| `,ticket add <user>` | Add a user to the ticket |
+| `,ticket remove <user>` | Remove a user from the ticket |
+| `,ticket rename <name>` | Rename the ticket channel |
+| `,ticket claim` | Claim the ticket (assign yourself as handler) |
+| `,ticket unclaim` | Unclaim the ticket |
 
-import { Tip } from "mintlify/components";
+Alias: `t`
 
-<Tip>
-  Ticket transcripts are saved automatically when a ticket is closed.
-</Tip>
+Ticket transcripts are saved automatically when a ticket is closed and sent to the configured log channel.

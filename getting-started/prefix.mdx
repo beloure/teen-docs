@@ -1,34 +1,28 @@
 ---
 title: Prefix
-description: Customize the command prefix for your server.
+description: Change the server prefix or set a personal prefix.
 icon: terminal
 ---
 
-import { Info, Warning } from "mintlify/components";
+# Prefix
 
-# Prefix Configuration
-
-Teen uses `,` as the default prefix. You can change it to any symbol or string you prefer.
-
-<Info>
-  Teen always responds to mentions — you can use `@Teen help` regardless of your prefix.
-</Info>
+Teen uses `,` as the default prefix. You can change it server-wide or set a personal prefix that works only for you.
 
 ## Commands
 
-| Command | Description |
-|---|---|
-| `,prefix set <symbol>` | Change the server prefix |
-| `,prefix` | View the current prefix |
+| Command | Description | Permission |
+|---|---|---|
+| `,prefix` | View the current server prefix | — |
+| `,prefix set <symbol>` | Change the server prefix | Administrator |
+| `,selfprefix <symbol>` | Set a personal prefix (only applies to you) | — |
+| `,selfprefix remove` | Remove your personal prefix | — |
 
 ## Examples
 
 ```
 ,prefix set !
 ,prefix set ?
-,prefix set teen.
+,selfprefix ;
 ```
 
-<Warning>
-  Only server administrators can change the prefix.
-</Warning>
+Your self-prefix overrides the server prefix for your commands only. Other members are unaffected.

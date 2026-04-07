@@ -1,26 +1,33 @@
 ---
 title: TikTok
-description: Auto-embed TikTok videos and manage TikTok integration.
+description: Auto-download TikTok videos and browse the FYP.
 icon: video
 ---
 
-# TikTok Integration
+# TikTok
 
-Teen can automatically fix and embed TikTok links so videos play directly in Discord.
+Teen can automatically detect TikTok links in messages, download the video, and repost it with stats.
 
 ## Commands
 
-| Command | Description |
-|---|---|
-| `,tiktok setup` | Enable TikTok auto-embedding |
-| `,tiktok disable` | Disable TikTok auto-embedding |
+| Command | Description | Permission |
+|---|---|---|
+| `,tiktok <username>` | Look up a TikTok profile | — |
+| `,tiktok toggle` | Toggle auto-download of TikTok links | Manage Server |
+| `,fyp [search]` | Get a random TikTok video | — |
 
-## How It Works
+Alias: `tt`
 
-When a member posts a TikTok link, Teen automatically converts it into an embeddable format so the video plays inline — no need to click out of Discord.
+## Auto-Download
 
-import { Info } from "mintlify/components";
+When enabled with `,tiktok toggle`, the bot will:
 
-<Info>
-  TikTok embeds work in all channels by default once enabled.
-</Info>
+1. Detect TikTok URLs in messages
+2. Delete the original message
+3. Repost the video with view/like/comment stats
+
+This works in all channels by default.
+
+## FYP
+
+Use `,fyp` to get a random TikTok video, or `,fyp <search>` to search for a specific topic.

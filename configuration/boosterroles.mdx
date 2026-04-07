@@ -1,0 +1,51 @@
+---
+title: Booster Roles
+description: Personal custom roles for server boosters.
+icon: rocket
+---
+
+# Booster Roles
+
+Server boosters can create and customize their own personal role with a custom name, color, and icon.
+
+## Admin Setup
+
+Before boosters can use this feature, an admin must set a base role that determines where booster roles appear in the hierarchy:
+
+```
+,boosterrole base <role>
+```
+
+Requires **Manage Roles** permission. All booster roles will be positioned below this role.
+
+## Booster Commands
+
+These commands are available to anyone who is actively boosting the server:
+
+| Command | Description |
+|---|---|
+| `,boosterrole create <name>` | Create your personal booster role |
+| `,boosterrole color <hex>` | Change your role's color |
+| `,boosterrole rename <name>` | Rename your role |
+| `,boosterrole icon <emoji or url>` | Set your role's icon (requires server level 2+) |
+| `,boosterrole remove` | Delete your booster role |
+
+Alias: `br`
+
+## Admin Commands
+
+| Command | Description | Permission |
+|---|---|---|
+| `,boosterrole base <role>` | Set the base role for positioning | Manage Roles |
+| `,boosterrole award <member> <role>` | Assign an existing role as someone's booster role | Manage Roles |
+| `,boosterrole award view [member]` | View a member's awarded role | Manage Roles |
+| `,boosterrole list` | List all booster roles in the server | — |
+
+## Examples
+
+```
+,br create My Cool Role
+,br color #FF69B4
+,br icon 🔥
+,br rename VIP Member
+```

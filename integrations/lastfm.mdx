@@ -1,50 +1,77 @@
 ---
 title: Last.fm
-description: Connect your Last.fm account and show off your music taste.
+description: Connect your Last.fm account and track your listening stats.
 icon: headphones
 ---
 
-import { Steps, Info, Tip } from "mintlify/components";
+# Last.fm
 
-# Last.fm Integration
+Link your Last.fm account to share what you're listening to, view stats, and compare taste with others.
 
-Link your Last.fm account to Teen and share what you're listening to, view stats, and compete with friends.
+## Connecting
 
-## Getting Started
+```
+,lastfm login
+```
 
-<Steps>
-  <Step title="Link your account">
-    ```
-    ,lastfm set <username>
-    ```
-  </Step>
-  <Step title="Show what you're playing">
-    ```
-    ,lastfm nowplaying
-    ```
-  </Step>
-</Steps>
+This sends you a DM with an authorization link. Click it to link your Last.fm account through OAuth.
 
-## Commands
+To unlink:
+
+```
+,lastfm logout
+```
+
+## Now Playing
+
+| Command | Alias | Description |
+|---|---|---|
+| `,nowplaying [member]` | `np`, `fm` | Show currently playing track |
+| `,lastfm nowplaying [member]` | `lf np` | Same as above |
+
+## Stats Commands
+
+| Command | Alias | Description |
+|---|---|---|
+| `,lastfm toptracks [member]` | `lf tt` | Most listened tracks |
+| `,lastfm topartists [member] [period]` | `lf artists` | Most listened artists |
+| `,lastfm topalbums [member]` | `lf ta` | Most listened albums |
+| `,lastfm count [member]` | — | Total scrobble count |
+| `,lastfm streak [member]` | — | Current listening streak |
+| `,lastfm playstrack <artist> - <track>` | `lf pt` | Play count for a specific track |
+| `,lastfm playsalbum [member] <artist> - <album>` | `lf pla` | Play count for an album |
+| `,lastfm playsall [member] <artist> - <album>` | `lf pa` | Plays for every track on an album |
+| `,lastfm firstlisten <artist or artist - track>` | `lf first` | When you first played something |
+| `,lastfm rediscover [member]` | — | Old songs you haven't played recently |
+| `,lastfm recommendation [member]` | `lf rec` | Random artist recommendation |
+
+### Time Periods
+
+Some commands accept a time period:
+
+| Period | Aliases |
+|---|---|
+| Overall | `alltime`, `all` |
+| 7 days | `week`, `7day` |
+| 1 month | `month`, `1month` |
+| 3 months | `3month` |
+| 6 months | `6month` |
+| 12 months | `year`, `12month` |
+
+## Server Commands
 
 | Command | Description |
 |---|---|
-| `,lastfm set <username>` | Link your Last.fm account |
-| `,lastfm nowplaying` | Show your currently playing track |
-| `,lastfm toptracks` | View your most played tracks |
-| `,lastfm topartists` | View your most played artists |
-| `,lastfm topalbums` | View your most played albums |
-| `,lastfm count` | Total scrobble count |
-| `,lastfm playstrack <track>` | How many times you've played a track |
-| `,lastfm playsall` | Total plays across all tracks |
-| `,lastfm streak` | Your current listening streak |
-| `,lastfm whoknows` | Who in the server listens to the same artist |
-| `,lastfm wkalbum` | Who in the server listens to the same album |
-| `,lastfm recommendation` | Get a music recommendation |
-| `,lastfm style` | Customize your nowplaying embed style |
-| `,lastfm update` | Force update your Last.fm data |
-| `,lastfm reset` | Unlink your Last.fm account |
+| `,lastfm whoknows <artist>` | Top listeners for an artist in this server |
+| `,lastfm wkalbum <artist> - <album>` | Top listeners for an album in this server |
+| `,lastfm crowns [member]` | View all artist crowns a user holds |
+| `,lastfm mostcrowns` | Top crown holders in the server |
+| `,lastfm taste <member> [period]` | Compare music taste with another member |
 
-<Tip>
-  Use `,lastfm whoknows` to see who else in your server listens to the artist you're currently playing. Great for finding people with similar taste.
-</Tip>
+## Customization
+
+| Command | Description |
+|---|---|
+| `,lastfm style <template>` | Set a custom now playing embed style |
+| `,lastfm style reset` | Reset to the default embed |
+| `,lastfm update` | Force update your account info |

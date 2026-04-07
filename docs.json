@@ -18,12 +18,7 @@
         "label": "Support",
         "href": "https://discord.gg/teen"
       }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Invite Teen",
-      "href": "https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot"
-    }
+    ]
   },
   "navigation": {
     "groups": [
@@ -31,7 +26,6 @@
         "group": "Getting Started",
         "pages": [
           "getting-started/welcome",
-          "getting-started/features",
           "getting-started/prefix"
         ]
       },
@@ -39,7 +33,6 @@
         "group": "Security",
         "pages": [
           "security/antinuke",
-          "security/moderation",
           "security/automod"
         ]
       },
@@ -47,28 +40,33 @@
         "group": "Server Setup",
         "pages": [
           "setup/welcome-goodbye",
-          "setup/autorole",
-          "setup/starboard",
-          "setup/voicemaster",
-          "setup/tickets",
           "setup/logging",
-          "setup/autorespond"
+          "setup/tickets",
+          "setup/voicemaster",
+          "setup/boards",
+          "setup/jail"
+        ]
+      },
+      {
+        "group": "Automation",
+        "pages": [
+          "automation/autorespond",
+          "automation/autoreact",
+          "automation/autopost"
+        ]
+      },
+      {
+        "group": "Configuration",
+        "pages": [
+          "configuration/boosterroles",
+          "configuration/customize",
+          "configuration/disable"
         ]
       },
       {
         "group": "Music",
         "pages": [
-          "music/playing",
-          "music/queue",
           "music/filters"
-        ]
-      },
-      {
-        "group": "Moderation",
-        "pages": [
-          "moderation/commands",
-          "moderation/cases",
-          "moderation/permissions"
         ]
       },
       {
@@ -81,9 +79,8 @@
       {
         "group": "Extras",
         "pages": [
-          "extras/fun",
-          "extras/utilities",
-          "extras/embed-scripting"
+          "extras/embed-scripting",
+          "extras/giveaways"
         ]
       }
     ]

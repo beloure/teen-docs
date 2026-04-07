@@ -1,41 +1,43 @@
 ---
 title: Logging
-description: Track every action in your server with detailed logs.
+description: Track server events with automatic log channels.
 icon: clipboard-list
 ---
 
 # Logging
 
-Teen can log server events to designated channels so you never miss what happens in your server.
+Teen can log server events to designated channels. Setup is done through an interactive wizard.
 
 ## Setup
 
 ```
-,log set <event> <#channel>
+,log setup
 ```
 
-## Commands
+This launches a guided setup with two modes:
 
-| Command | Description |
+- **One Channel** — all events are logged to a single channel
+- **Multiple Channels** — each event category gets its own channel (auto-created or manually assigned)
+
+Requires **Manage Server** permission.
+
+## Event Categories
+
+| Category | Events |
 |---|---|
-| `,log set <event> <#channel>` | Set a log channel for an event type |
-| `,log remove <event>` | Stop logging an event |
-| `,log list` | View all configured log channels |
+| **Moderation** | Ban, Unban, Kick, Timeout, Untimeout |
+| **Messages** | Delete, Bulk Delete, Edit, Pin, Unpin |
+| **Members** | Join, Leave, Nickname Change, Role Add/Remove, Avatar Change, Username Change, Boost, Unboost |
+| **Voice** | Join, Leave, Move, Server Mute/Deafen, Self Mute/Deafen, Stream Start/End, Camera On/Off |
+| **Channels** | Create, Delete, Name Change, Topic Change, Slowmode Change, NSFW Toggle, Permission Changes |
+| **Threads** | Create, Delete, Archive, Unarchive, Name Change, Member Join/Leave |
+| **Roles** | Create, Delete, Name/Color/Permission/Hoist/Mentionable Changes |
+| **Server** | Name, Icon, Description, Vanity, Verification Changes, Emoji/Sticker Add/Remove |
+| **Invites** | Create, Delete |
+| **Stages** | Open, Close, Topic Change |
+| **Scheduled Events** | Create, Delete, Update, User Join/Leave |
+| **Automod** | Rule Create/Delete/Update, Message Blocked, Member Timeout/Flagged |
+| **Webhooks** | Create, Delete, Update |
+| **Integrations** | Bot Add/Remove, Integration Add/Remove/Update |
 
-## Event Types
-
-| Event | What It Logs |
-|---|---|
-| `message` | Message edits and deletes |
-| `member` | Member joins, leaves, role changes |
-| `channel` | Channel creates, deletes, updates |
-| `role` | Role creates, deletes, permission changes |
-| `voice` | Voice channel joins, moves, disconnects |
-| `moderation` | Bans, kicks, timeouts, mutes |
-| `server` | Server setting changes |
-
-import { Tip } from "mintlify/components";
-
-<Tip>
-  For the best setup, create a **Logs** category and use separate channels for each event type.
-</Tip>
+Events are stored internally as `Module.Event` (e.g., `Messages.Delete`).

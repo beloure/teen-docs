@@ -1,0 +1,48 @@
+---
+title: Disable Commands
+description: Disable specific commands or modules in your server.
+icon: ban
+---
+
+# Disable Commands
+
+Administrators can disable individual commands or entire modules server-wide or in specific channels.
+
+## Commands
+
+| Command | Description | Permission |
+|---|---|---|
+| `,disablecommand [#channel] <command>` | Disable a command (globally or in a channel) | Administrator |
+| `,enablecommand [#channel] <command>` | Re-enable a command | Administrator |
+| `,disablecommand list` | View all disabled commands | Administrator |
+| `,disablemodule [#channel] <module>` | Disable an entire module | Administrator |
+| `,enablemodule [#channel] <module>` | Re-enable a module | Administrator |
+| `,disablemodule list` | View all disabled modules | Administrator |
+| `,disablereset` | Reset all disabled commands and modules | Administrator |
+
+## Examples
+
+Disable a command server-wide:
+```
+,disablecommand snipe
+```
+
+Disable a command in a specific channel:
+```
+,disablecommand #general snipe
+```
+
+Disable an entire module:
+```
+,disablemodule fun
+```
+
+Re-enable:
+```
+,enablecommand snipe
+,enablemodule fun
+```
+
+## Protected Commands
+
+The following commands cannot be disabled: `disablecommand`, `enablecommand`, `disablemodule`, `enablemodule`, `disablereset`, `help`. The Config module cannot be disabled.
