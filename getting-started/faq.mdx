@@ -1,0 +1,66 @@
+---
+title: "FAQ"
+description: "Answers to the most common questions about Teen."
+icon: "circle-question"
+---
+
+<AccordionGroup>
+  <Accordion title="Why isn't the bot responding?">
+    Make sure Teen has **View Channel** and **Send Messages** permissions in the channel you're using. Double-check that you're using the correct prefix (default is `,`) and that the bot appears **online** in the member list.
+
+    If everything looks right and the bot still isn't responding, it may be temporarily undergoing maintenance.
+  </Accordion>
+
+  <Accordion title="I forgot my prefix, how do I find it out?">
+    **Mention the bot** — `@Teen` always works as a prefix, no matter what the server prefix is set to.
+
+    You can also run `,prefix` to view the current server prefix. If your server prefix was changed and you don't remember it, just use the mention.
+  </Accordion>
+
+  <Accordion title="Why isn't music playing?">
+    Make sure you're **connected to a voice channel** before running a play command. The bot needs **Connect** and **Speak** permissions in that channel.
+
+    If everything seems correct, the music node may be temporarily down — try again in a few minutes.
+  </Accordion>
+
+  <Accordion title="Antinuke keeps punishing me or my admins">
+    The **server owner** is always immune to antinuke.
+
+    For everyone else, there are two levels:
+    - **Whitelist** — prevents a user from triggering antinuke actions
+    - **Admin** — higher than whitelist, grants access to antinuke configuration and bypasses antinuke entirely
+
+    Use `,antinuke whitelist @user` or `,antinuke admin @user` depending on the level of trust.
+  </Accordion>
+
+  <Accordion title="How do I get support?">
+    Join the **[support server](https://discord.gg/sms)** and open a ticket — the team will help you out.
+  </Accordion>
+
+  <Accordion title="How do I set up features like logging or welcome messages?">
+    Run `,setup` to get an interactive walkthrough of all major features. You can also check the specific documentation page for each feature in the sidebar.
+  </Accordion>
+
+  <Accordion title="Can I use Teen in multiple servers?">
+    Yes. Teen works in as many servers as you invite it to. Each server has its own **independent settings**, prefix, and configuration — nothing carries over between servers.
+  </Accordion>
+
+  <Accordion title="Why did the bot remove my role or ban me?">
+    Antinuke likely detected a suspicious action from your account (mass banning, deleting channels, etc.).
+
+    Ask the **server owner** to check `,antinuke settings` and add you to the whitelist or admin list if appropriate.
+  </Accordion>
+
+  <Accordion title="How do I reset all bot settings?">
+    There's no single command to reset everything. You'll need to reconfigure features individually:
+    - **Antinuke** — `,antinuke reset`
+    - **Prefix** — `,prefix set ,`
+    - **Other features** — disable or reconfigure them through their respective commands
+  </Accordion>
+
+  <Accordion title="The bot is online but says I don't have permission">
+    Some commands require specific **Discord permissions** (like Manage Messages or Ban Members), and some are restricted to the **server owner only**.
+
+    Check the [permissions page](/getting-started/permissions) for a full breakdown of what's required.
+  </Accordion>
+</AccordionGroup>
