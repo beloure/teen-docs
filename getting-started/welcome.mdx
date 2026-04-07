@@ -1,0 +1,69 @@
+---
+title: What is Teen?
+description: Everything you need to know to get started with Teen.
+icon: hand-wave
+---
+
+import { Card, CardGroup, Steps, Info, Warning } from "mintlify/components";
+
+# What is Teen?
+
+This guide will help you understand how to set up and use Teen. If your questions aren't answered here, join [discord.gg/sms](https://discord.gg/sms) and open a post.
+
+<Warning>
+  Make sure Teen's role is at the **very top** of your server's role list. This prevents permission issues and allows the bot to run moderation, antinuke, and management commands without errors.
+</Warning>
+
+## Setup
+
+<Steps>
+  <Step title="Position the bot role">
+    Drag Teen's role to the **top** of your role hierarchy in Server Settings → Roles.
+  </Step>
+  <Step title="Grant all permissions">
+    Ensure Teen has **Administrator** permissions or all necessary permissions enabled.
+  </Step>
+  <Step title="Run setup">
+    Use `,setup` to configure core features — you'll be prompted to set up **VoiceMaster**, **Jail**, **Logging**, and **Moderation**.
+  </Step>
+  <Step title="Customize your server">
+    Browse the docs below to fine-tune each feature to your liking.
+  </Step>
+</Steps>
+
+<Info>
+  Only the **server owner** can run the `,setup` command. As you go through this documentation, you'll learn which commands are restricted to server owners, antinuke admins, and other permission levels.
+</Info>
+
+## Prefix
+
+The default prefix is `,` — you can change it at any time.
+
+| Command | Description |
+|---|---|
+| `,prefix set <symbol>` | Change the server-wide prefix |
+| `,selfprefix <symbol>` | Set a personal prefix (only affects you) |
+| `,selfprefix remove` | Remove your personal prefix |
+
+## Explore
+
+<CardGroup cols={2}>
+  <Card title="Security" icon="shield-halved" href="/security/antinuke">
+    Antinuke, word filters, mass mention detection, and jail.
+  </Card>
+  <Card title="Server Setup" icon="gear" href="/setup/welcome-goodbye">
+    Welcome messages, logging, tickets, voicemaster, and boards.
+  </Card>
+  <Card title="Automation" icon="robot" href="/automation/autorespond">
+    Auto responses, auto reactions, and scheduled posts.
+  </Card>
+  <Card title="Music" icon="headphones" href="/music/filters">
+    Playback with filters like nightcore, bass boost, and 8D.
+  </Card>
+  <Card title="Integrations" icon="plug" href="/integrations/lastfm">
+    Last.fm scrobble stats and TikTok auto-downloads.
+  </Card>
+  <Card title="Configuration" icon="sliders" href="/configuration/boosterroles">
+    Booster roles, bot customization, and command management.
+  </Card>
+</CardGroup>
