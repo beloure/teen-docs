@@ -4,11 +4,11 @@ description: "Everything you need to know to get started with Teen."
 icon: "hand-wave"
 ---
 
-import { Card, CardGroup, Steps, Info, Warning } from "mintlify/components";
+import { Accordion, AccordionGroup, Card, CardGroup, Steps, Info, Warning } from "mintlify/components";
 
 # What is Teen?
 
-This guide will help you understand how to set up and use Teen. If your questions aren't answered here, join [Teen ](https://discord.gg/sms)and open a post.
+This guide will help you understand how to set up and use Teen. The only official invite link for the bot is [here](https://discord.com/oauth2/authorize?client_id=1477565161752625222&permissions=7417298934951415&scope=bot). If your questions aren't answered in these docs, join [discord.gg/sms](https://discord.gg/sms) and open a post.
 
 <Warning>
   Make sure Teen's role is at the **very top** of your server's role list. This prevents permission issues and allows the bot to run moderation, antinuke, and management commands without errors.
@@ -21,7 +21,7 @@ This guide will help you understand how to set up and use Teen. If your question
     Drag Teen's role to the **top** of your role hierarchy in Server Settings → Roles.
   </Step>
   <Step title="Grant all permissions">
-    Ensure Teen has **Administrator** permissions or all necessary permissions enabled.
+    Ensure Teen has all the permissions it was invited with. Do not remove any of the default permissions from the bot role.
   </Step>
   <Step title="Run setup">
     Use `,setup` to configure core features — you'll be prompted to set up **VoiceMaster**, **Jail**, **Logging**, and **Moderation**.
@@ -39,11 +39,20 @@ This guide will help you understand how to set up and use Teen. If your question
 
 The default prefix is `,` — you can change it at any time.
 
-| Command | Description |
-| --- | --- |
-| `,prefix set <symbol>` | Change the server-wide prefix |
-| `,selfprefix <symbol>` | Set a personal prefix (only affects you) |
-| `,selfprefix remove` | Remove your personal prefix |
+<AccordionGroup>
+  <Accordion title=",prefix">
+    View the current server prefix.
+  </Accordion>
+  <Accordion title=",prefix set <symbol>">
+    Change the server-wide prefix. Requires **Administrator** permission.
+  </Accordion>
+  <Accordion title=",selfprefix <symbol>">
+    Set a personal prefix that only applies to you. Other members are unaffected.
+  </Accordion>
+  <Accordion title=",selfprefix remove">
+    Remove your personal prefix and revert to the server default.
+  </Accordion>
+</AccordionGroup>
 
 ## Explore
 
