@@ -54,6 +54,13 @@
           "protection/antinuke",
           "protection/filter"
         ]
+      },
+      {
+        "group": "Integrations",
+        "pages": [
+          "integrations/lastfm",
+          "integrations/music"
+        ]
       }
     ]
   },

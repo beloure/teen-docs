@@ -1,0 +1,104 @@
+---
+title: "Music"
+description: "Play music from YouTube, SoundCloud, and Spotify in voice channels."
+icon: "music"
+---
+
+Play music from **YouTube**, **SoundCloud**, and **Spotify** directly in voice channels. The bot supports queues, filters, autoplay, and interactive controls.
+
+## Playing Music
+
+| Command | Usage | Description |
+|---|---|---|
+| `,play` | `<query or URL>` | Play a track or add it to the queue |
+| `,skip` | | Skip the current track |
+| `,pause` | | Pause playback |
+| `,resume` | | Resume playback |
+| `,disconnect` | | Leave the voice channel and clear the queue |
+
+<Info>
+  You can paste a **YouTube**, **SoundCloud**, or **Spotify** link (track, album, or playlist). Text searches default to SoundCloud with YouTube fallback.
+</Info>
+
+## Playback Controls
+
+| Command | Usage | Description |
+|---|---|---|
+| `,seek` | `<position>` | Jump to a timestamp (e.g. `1:30`, `90`) |
+| `,fastforward` | `<seconds>` | Fast forward by the given amount |
+| `,rewind` | `<seconds>` | Rewind by the given amount |
+| `,volume` | `<0-100>` | Set the playback volume |
+
+## Queue
+
+| Command | Usage | Description |
+|---|---|---|
+| `,queue` | | View the current queue |
+| `,queue remove` | `<position>` | Remove a track by its position |
+| `,queue shuffle` | | Shuffle the queue |
+| `,queue empty` | | Clear the entire queue |
+| `,queue move` | `<from> <to>` | Move a track to a different position |
+
+## Autoplay
+
+When the queue runs out, autoplay will automatically add related tracks to keep the music going.
+
+```
+,autoplay on
+,autoplay off
+```
+
+<Info>
+  Autoplay queues up to 10 related tracks based on the current song and avoids repeating recently played tracks.
+</Info>
+
+## Filters
+
+Apply audio effects to change how the music sounds.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,tune` | | View active filters and available presets |
+| `,tune set` | `<preset>` | Apply a filter |
+| `,tune remove` | `<preset>` | Remove a specific filter |
+| `,tune clear` | | Remove all filters |
+
+### Available Presets
+
+| Preset | Effect |
+|---|---|
+| `nightcore` | Speed 1.25x, pitch 1.3x |
+| `slowed` | Slowed down playback |
+| `vaporwave` | Vaporwave effect |
+| `8d` | Rotating 8D audio |
+| `tremolo` | Tremolo effect |
+| `vibrato` | Vibrato effect |
+| `karaoke` | Vocal removal |
+| `lowpass` | Low-pass filter |
+| `bassboost` | Enhanced bass with 15-band EQ |
+
+### Shortcuts
+
+These toggle on/off without needing `,tune`:
+
+| Command | Effect |
+|---|---|
+| `,nightcore` | Toggle nightcore |
+| `,bassboost` | Toggle bass boost |
+| `,8d` | Toggle 8D audio |
+
+## Now Playing Controls
+
+When a track starts playing, the bot sends a message with interactive buttons:
+
+| Button | Action |
+|---|---|
+| ⏮ | Play the previous track |
+| ⏯ | Pause or resume |
+| ⏭ | Skip to the next track |
+
+## Automatic Behavior
+
+- **Idle disconnect** — the bot leaves after 5 minutes if nothing is playing
+- **Empty channel** — the bot leaves 30 seconds after all members disconnect
+- **Queue persistence** — the queue is saved and restored if the bot restarts

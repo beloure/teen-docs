@@ -1,0 +1,101 @@
+---
+title: "Last.fm"
+description: "Link your Last.fm account to show what you're listening to and compare music taste."
+icon: "headphones"
+---
+
+Connect your Last.fm account to show what you're scrobbling, view your top tracks and artists, compare taste with friends, and compete for artist crowns in your server.
+
+## Linking Your Account
+
+```
+,lastfm login
+```
+
+The bot will DM you an OAuth link to connect your Last.fm account. To unlink:
+```
+,lastfm logout
+```
+
+## Now Playing
+
+| Command | Usage | Description |
+|---|---|---|
+| `,nowplaying` | `[member]` | Show what you or someone else is currently scrobbling |
+
+You can also use `,np` or `,fm` as shortcuts.
+
+## Stats
+
+| Command | Usage | Description |
+|---|---|---|
+| `,lastfm whois` | `[member]` | Full profile — scrobbles, artist/album/track counts, country, registration |
+| `,lastfm count` | `[member]` | Total scrobble count |
+| `,lastfm streak` | `[member]` | Consecutive days with at least one scrobble |
+
+## Top Charts
+
+| Command | Usage | Description |
+|---|---|---|
+| `,lastfm toptracks` | `[member]` | Your top 10 tracks |
+| `,lastfm topalbums` | `[member]` | Your top 10 albums |
+| `,lastfm topartists` | `[member] [period]` | Your top 10 artists |
+| `,lastfm toptenalbums` | `[member] <artist>` | Top 10 albums by a specific artist from your library |
+
+**Periods:** `overall`, `week`, `month`, `3month`, `6month`, `year`
+
+## Play Counts
+
+| Command | Usage | Description |
+|---|---|---|
+| `,lastfm playstrack` | `<artist> - <track>` | Your play count for a specific track |
+| `,lastfm playsalbum` | `[member] <artist> - <album>` | Your play count for a specific album |
+| `,lastfm playsall` | `[member] <artist> - <album>` | Play count for every track on an album |
+
+## Server Features
+
+| Command | Usage | Description |
+|---|---|---|
+| `,lastfm whoknows` | `<artist>` | Leaderboard of top listeners for an artist in your server |
+| `,lastfm wkalbum` | `<artist> - <album>` | Leaderboard of top listeners for an album in your server |
+| `,lastfm taste` | `<member> [period]` | Compare your top artists with another member |
+| `,lastfm playing` | | See what everyone in the server is scrobbling right now |
+
+## Crowns
+
+When you run `,lastfm whoknows`, the member with the most plays for that artist automatically gets the crown.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,lastfm crowns` | `[member]` | View all artist crowns a user holds |
+| `,lastfm mostcrowns` | | Top 10 crown holders in the server |
+
+## Discovery
+
+| Command | Usage | Description |
+|---|---|---|
+| `,lastfm recommendation` | `[member]` | Get a random artist recommendation from outside your top 10 |
+| `,lastfm firstlisten` | `<artist>` or `<artist> - <track>` | Find the first time you scrobbled an artist or track |
+| `,lastfm rediscover` | `[member]` | Top tracks you haven't played recently |
+
+## Collage
+
+Generate an album art collage from your listening history:
+```
+,lastfm collage [member] [size] [period]
+```
+
+**Sizes:** `1x1` through `8x8`, `10x10`
+**Periods:** same as top charts
+
+## Custom Style
+
+Customize how your now playing embed looks:
+```
+,lastfm style <template>
+```
+
+Uses tagscript variables like `{track.name}`, `{artist.name}`, `{album.cover}`, `{track.plays}`, and more. Reset with:
+```
+,lastfm style reset
+```
