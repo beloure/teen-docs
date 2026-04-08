@@ -40,7 +40,7 @@ Welcome messages support **tagscript** and **embed syntax** for fully customizab
 Want to build a custom embed? Use the **[Embed Builder](https://teen.rip/builder)** to design your message visually and copy the code directly into your command.
 
 ```
-,welcome add #welcome Welcome to {server}, {user.mention}! You're member #{server.members}.
+,welcome add #welcome {user.mention}$v{embed}$v{color: #8B6914}$v{title: Welcome to {server}!}$v{description: Hey {user.mention}, thanks for joining! Make sure to check out the rules and have fun.}
 ```
 
 ## Examples
@@ -50,14 +50,14 @@ Want to build a custom embed? Use the **[Embed Builder](https://teen.rip/builder
 ,welcome add #general Welcome to the server!
 ```
 
-**Auto-deleting welcome with mention:**
+**Embed welcome with auto-delete:**
 ```
-,welcome add #welcome Hey {user.mention}, welcome! --delete 30
+,welcome add #welcome {user.mention}$v{embed}$v{color: #8B6914}$v{title: Welcome!}$v{description: Enjoy your stay in **{server}**, {user.mention}!} --delete 60
 ```
 
 **Pending welcome (waits for screening):**
 ```
-,welcome add #welcome You've been verified! Welcome to {server}. --pending
+,welcome add #welcome {user.mention}$v{embed}$v{color: #8B6914}$v{title: You've been verified!}$v{description: Welcome to {server}, {user.mention}. You now have full access.} --pending
 ```
 
 **Test your messages:**

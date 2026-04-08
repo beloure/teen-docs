@@ -35,7 +35,7 @@ Goodbye messages support the same **tagscript** and **embed syntax** as welcome 
 Want to build a custom embed? Use the **[Embed Builder](https://teen.rip/builder)** to design your message visually and copy the code directly into your command.
 
 ```
-,goodbye add #goodbye {user} has left {server}. We now have {server.members} members.
+,goodbye add #goodbye {user.mention}$v{embed}$v{color: #8B6914}$v{title: Goodbye!}$v{description: **{user}** has left {server}. We now have {server.members} members.}
 ```
 
 ## Examples
@@ -45,9 +45,9 @@ Want to build a custom embed? Use the **[Embed Builder](https://teen.rip/builder
 ,goodbye add #goodbye Goodbye {user}, we'll miss you!
 ```
 
-**Auto-deleting goodbye:**
+**Embed goodbye with auto-delete:**
 ```
-,goodbye add #general {user} just left. --delete 15
+,goodbye add #goodbye {embed}$v{color: #8B6914}$v{title: See you later!}$v{description: **{user}** just left the server.} --delete 30
 ```
 
 **Test your messages:**
