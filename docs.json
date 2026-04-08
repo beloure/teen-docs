@@ -47,6 +47,13 @@
           "automation/autoreact",
           "automation/autopost"
         ]
+      },
+      {
+        "group": "Protection",
+        "pages": [
+          "protection/antinuke",
+          "protection/filter"
+        ]
       }
     ]
   },

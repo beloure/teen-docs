@@ -1,0 +1,158 @@
+---
+title: "Antinuke"
+description: "Protect your server from destructive actions like mass bans, channel deletions, and unauthorized changes."
+icon: "shield"
+---
+
+Antinuke monitors your server for destructive actions and automatically punishes the responsible user. It tracks events like mass bans, channel deletions, role changes, and more — and can reverse most of them.
+
+## Getting Started
+
+Enable antinuke with:
+```
+,antinuke on
+```
+
+Disable it with:
+```
+,antinuke off
+```
+
+<Info>
+  Only the **server owner** and **antinuke admins** can manage antinuke settings.
+</Info>
+
+## Modules
+
+Each module protects against a specific type of action. Configure them with:
+```
+,antinuke <module> do:<punishment> threshold:<number>
+```
+
+Toggle a module on or off:
+```
+,antinuke <module> on
+,antinuke <module> off
+```
+
+### Available Modules
+
+| Module | What it protects | Threshold | Reverts actions |
+|---|---|---|---|
+| `channel` | Channel create, delete, and update | Yes | Yes — deletes created channels, recreates deleted ones, reverts updates |
+| `roles` | Role create, delete, and update | Yes | Yes — deletes created roles, recreates deleted ones with permissions |
+| `ban` | Mass banning members | Yes | Yes — unbans the banned users |
+| `kick` | Mass kicking members | Yes | No |
+| `webhook` | Webhook create, delete, and update | Yes | No |
+| `emoji` | Emoji create and delete | Yes | Yes — deletes created emojis, re-downloads deleted ones |
+| `permissions` | Granting dangerous permissions | No | No |
+| `botadd` | Adding unauthorized bots | No | No — kicks the bot immediately |
+| `vanity` | Vanity URL changes | No | Yes — restores the original vanity |
+
+<Warning>
+  Modules without a threshold trigger **instantly** on the first action.
+</Warning>
+
+### Dangerous Permissions
+
+The `permissions` module triggers when someone grants any of these permissions through a role:
+
+`administrator`, `manage_guild`, `manage_roles`, `ban_members`, `kick_members`, `manage_channels`, `manage_webhooks`, `mention_everyone`
+
+## Punishments
+
+| Punishment | What it does |
+|---|---|
+| `ban` | Bans the user |
+| `kick` | Kicks the user |
+| `strip` | Removes all staff roles from the user |
+| `jail` | Jails the user (requires jail to be set up) |
+
+## Threshold Window
+
+Thresholds are counted within a rolling time window. By default this is **24 hours**. Change it with:
+```
+,antinuke window <duration>
+```
+For example, `,antinuke window 12h` means a user must exceed the threshold within 12 hours to trigger punishment.
+
+## Interactive Config
+
+Run `,antinuke config` to open an interactive dropdown where you can select any module and set its punishment and threshold through a popup.
+
+View your full configuration with:
+```
+,antinuke list
+```
+
+## Whitelist
+
+Whitelisted users are **temporarily exempt** from antinuke for **5 minutes**. Useful for giving someone a short window to make changes.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,antinuke whitelist` | `<@user>` | Toggle a user's whitelist status |
+| `,antinuke whitelist add` | `<@user>` | Add a user to the whitelist |
+| `,antinuke whitelist remove` | `<@user>` | Remove a user from the whitelist |
+| `,antinuke whitelisted` | | View all whitelisted users with time remaining |
+
+<Info>
+  Whitelist supports both **users and bots**. Entries expire after 5 minutes.
+</Info>
+
+## Admins
+
+Antinuke admins have **permanent** exemption from antinuke and can manage antinuke settings just like the server owner. Only the **server owner** can add or remove admins.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,antinuke admin` | `<@user>` | Toggle a user's admin status |
+| `,antinuke admins` | | View all antinuke admins |
+
+### Whitelist vs Admin
+
+| | Whitelist | Admin |
+|---|---|---|
+| Expires | After 5 minutes | Never |
+| Can manage antinuke | No | Yes |
+| Exempt from detection | Yes | Yes |
+| Supports bots | Yes | No |
+| Who can manage | Owner or admins | Owner only |
+
+## Reset
+
+Reset all antinuke settings:
+```
+,antinuke reset
+```
+
+Reset everything including admins and whitelist:
+```
+,antinuke reset all
+```
+
+<Warning>
+  Only the **server owner** can reset antinuke. This cannot be undone.
+</Warning>
+
+## Examples
+
+**Set up ban protection with a threshold of 3:**
+```
+,antinuke ban do:ban threshold:3
+```
+
+**Protect against channel deletion, strip roles on trigger:**
+```
+,antinuke channel do:strip threshold:2
+```
+
+**Block all unauthorized bots:**
+```
+,antinuke botadd do:kick
+```
+
+**Whitelist someone for 5 minutes to make changes:**
+```
+,antinuke whitelist @user
+```

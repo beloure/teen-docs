@@ -1,0 +1,104 @@
+---
+title: "Filter"
+description: "Automatically filter blocked words and mass mentions from your server."
+icon: "filter"
+---
+
+The filter system automatically removes messages that contain blocked words or excessive mentions, and punishes the user. It includes two modules: **word filter** and **mass mentions**.
+
+## Commands
+
+All filter commands require **Administrator** permission.
+
+Run `,filter` to open an interactive config panel where you can manage both modules through a button interface.
+
+## Word Filter
+
+The word filter checks every message for blocked words using word boundary matching. When a match is found, the message is deleted and the user is punished.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,filter words on` | | Enable the word filter |
+| `,filter words off` | | Disable the word filter |
+| `,filter words add` | `<word> [word2] ...` | Add words to the blocked list |
+| `,filter words remove` | `<word> [word2] ...` | Remove words from the blocked list |
+| `,filter words list` | | View all blocked words |
+
+Additional settings like **channels**, **exempt roles/users**, **punishment**, and **duration** are managed through the interactive panel — run `,filter words` to open it.
+
+### Word Filter Panel Options
+
+| Option | What it does |
+|---|---|
+| Toggle Status | Enable or disable the filter |
+| Manage Words | Add, remove, or view blocked words |
+| Edit Channels | Choose specific channels or apply to all |
+| Edit Exempt | Set up to 10 exempt roles and 10 exempt users |
+| Set Punishment | Choose: ban, kick, strip, jail, or timeout |
+| Set Duration | Set duration for timeout or jail punishments |
+| Reset Settings | Clear all word filter configuration |
+
+## Mass Mentions
+
+The mass mention filter tracks how many mentions (user and role) someone sends within a **10-second window**. If the total exceeds the threshold, all offending messages are deleted and the user is punished.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,filter massmentions on` | | Enable the mass mention filter |
+| `,filter massmentions off` | | Disable the mass mention filter |
+| `,filter massmentions threshold` | `<1-50>` | Set the mention count that triggers punishment |
+| `,filter massmentions channel` | `<all or #channels>` | Set which channels to monitor |
+| `,filter massmentions punishment` | `<ban\|kick\|strip\|jail\|timeout>` | Set the punishment |
+| `,filter massmentions duration` | `<duration>` | Set duration for timeout or jail (max 28 days) |
+| `,filter massmentions exempt` | `<@user or @role>` | Toggle exempt status for a user or role |
+| `,filter massmentions reset` | | Clear all mass mention settings |
+
+## Punishments
+
+Both filters support the same punishment types:
+
+| Punishment | What it does |
+|---|---|
+| `ban` | Bans the user |
+| `kick` | Kicks the user |
+| `strip` | Removes all staff roles |
+| `jail` | Jails the user (auto-creates jail if not configured) |
+| `timeout` | Discord native timeout (default 10 minutes) |
+
+<Info>
+  **Administrators** and **bots** are always exempt from filters.
+</Info>
+
+## Exemptions
+
+Each filter supports up to **10 exempt roles** and **10 exempt users**. Exempt members can send blocked words or mass mentions without being punished.
+
+For mass mentions, use `,filter massmentions exempt @user` or `@role` to toggle exemptions.
+
+For word filter, manage exemptions through the interactive panel (`,filter words`).
+
+## Examples
+
+**Enable word filter and add blocked words:**
+```
+,filter words on
+,filter words add badword1 badword2 badword3
+```
+
+**Set up mass mention protection:**
+```
+,filter massmentions on
+,filter massmentions threshold 5
+,filter massmentions punishment timeout
+,filter massmentions duration 1h
+```
+
+**Monitor only specific channels:**
+```
+,filter massmentions channel #general #chat
+```
+
+**Exempt a moderator role:**
+```
+,filter massmentions exempt @Moderator
+```
