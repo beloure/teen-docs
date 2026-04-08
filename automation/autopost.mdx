@@ -1,0 +1,67 @@
+---
+title: "Autopost"
+description: "Schedule messages to be sent automatically on a repeating interval."
+icon: "clock"
+---
+
+Autopost lets you schedule recurring messages in any channel. Great for reminders, rules reposts, scheduled announcements, or rotating content.
+
+## Commands
+
+All commands require **Manage Server** permission.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,autopost add` | `<interval> <#channel> <content>` | Create a new scheduled post |
+| `,autopost delete` | `<id>` | Delete an autopost by its ID |
+| `,autopost edit` | `<id> [interval] [#channel] [content]` | Edit an existing autopost |
+| `,autopost list` | | View all autoposts with status and next run time |
+| `,autopost pause` | `<id>` | Pause an autopost |
+| `,autopost resume` | `<id>` | Resume a paused autopost |
+| `,autopost view` | `<id>` | Preview an autopost by sending it once |
+
+## Intervals
+
+The interval determines how often the message is sent. Use a number followed by a unit:
+
+| Unit | Example | Meaning |
+|---|---|---|
+| `s` | `30s` | Every 30 seconds |
+| `m` | `10m` | Every 10 minutes |
+| `h` | `2h` | Every 2 hours |
+| `d` | `1d` | Every day |
+
+<Warning>
+  The minimum interval is **1 minute**. Anything shorter will be rejected.
+</Warning>
+
+## Tagscript & Embeds
+
+Autopost content supports **tagscript** for dynamic messages — use variables like `{user}`, `{server}`, `{time}`, and more.
+
+You can also send **rich embeds** using tagscript embed syntax and attach **buttons** to your posts.
+
+## Behavior
+
+- Each autopost gets an **auto-incrementing ID** per server
+- Autoposts **survive bot restarts** — they're stored in the database and reloaded automatically
+- If the target channel is **deleted**, the autopost is automatically **paused**
+- The `,autopost list` command shows the next run time as a Discord relative timestamp
+
+## Examples
+
+**Post a reminder every 6 hours:**
+```
+,autopost add 6h #reminders Don't forget to check in!
+```
+
+**Daily rules repost:**
+```
+,autopost add 1d #rules Please read the rules before chatting. Be respectful.
+```
+
+**Pause and resume:**
+```
+,autopost pause 3
+,autopost resume 3
+```

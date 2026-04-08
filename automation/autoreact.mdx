@@ -1,0 +1,64 @@
+---
+title: "Autoreact"
+description: "Automatically react with an emoji when a message matches a trigger."
+icon: "face-smile"
+---
+
+Autoreact adds emoji reactions to messages that match a trigger. Useful for fun interactions, reaction-based voting, or acknowledging specific keywords.
+
+<Info>
+  The bot can add up to **5 reactions** per message across all matching rules.
+</Info>
+
+## Commands
+
+The base command is `,autoreact` (or `,ar` for short). All subcommands require **Manage Server** permission.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,ar add` | `<trigger>, <emoji>` | Create a new autoreaction |
+| `,ar remove` | `<trigger>` | Delete an autoreaction |
+| `,ar update` | `<trigger>, <new emoji>` | Update an existing reaction |
+| `,ar list` | | View all autoreactions |
+| `,ar reset` | | Remove **all** autoreactions |
+
+## Flags
+
+| Flag | What it does |
+|---|---|
+| `--strict` | Trigger must match the **entire message**, not just be contained in it |
+
+## Restrictions
+
+Like autorespond, you can restrict reactions to a specific **channel** or **role**.
+
+```
+,ar add hello, 👋 #general
+```
+Only reacts in **#general**.
+
+```
+,ar add hello, 👋 @Members
+```
+Only reacts to messages from users with the **Members** role.
+
+<Info>
+  Channel-specific rules are checked **before** global rules. Both **unicode emojis** and **custom server emojis** are supported.
+</Info>
+
+## Examples
+
+**Basic autoreaction:**
+```
+,ar add hello, 👋
+```
+
+**Custom emoji with channel restriction:**
+```
+,ar add clip, :fire: #clips
+```
+
+**Strict match:**
+```
+,ar add gm, ☀️ --strict
+```

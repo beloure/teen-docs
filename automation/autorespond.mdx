@@ -1,0 +1,76 @@
+---
+title: "Autorespond"
+description: "Automatically send a response when a message matches a trigger."
+icon: "reply"
+---
+
+Autorespond lets you set up automatic replies to specific words or phrases. When someone sends a message containing your trigger, the bot responds instantly.
+
+<Info>
+  All triggers are **case-insensitive** — `hello` will match `Hello`, `HELLO`, and `HeLLo`.
+</Info>
+
+## Commands
+
+The base command is `,autorespond` (or `,asr` for short). All subcommands require **Manage Server** permission.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,asr add` | `<trigger>, <response>` | Create a new autoresponder |
+| `,asr remove` | `<trigger>` | Delete an autoresponder |
+| `,asr update` | `<trigger>, <new response>` | Update an existing response |
+| `,asr list` | | View all autoresponders |
+| `,asr reset` | | Remove **all** autoresponders |
+
+## Flags
+
+Add these to the end of your `,asr add` or `,asr update` command to change how the response behaves.
+
+| Flag | What it does |
+|---|---|
+| `--strict` | Trigger must match the **entire message**, not just be contained in it |
+| `--reply` | Bot replies directly to the message instead of sending a new one |
+| `--dm` | Bot DMs the user instead of responding in the channel |
+
+<Warning>
+  If both `--reply` and `--dm` are used, `--reply` takes priority. If the user has DMs closed, `--dm` falls back to the channel.
+</Warning>
+
+## Restrictions
+
+You can limit an autoresponder to a specific **channel** or **role** by including them in the command.
+
+```
+,asr add hello, Hey there! #general
+```
+This response will only trigger in **#general**.
+
+```
+,asr add hello, Hey there! @Members
+```
+This response will only trigger for users with the **Members** role.
+
+## Tagscript
+
+Responses support **tagscript variables** for dynamic content. You can use variables like `{user}`, `{server}`, `{channel}`, and more to personalize your responses.
+
+```
+,asr add hello, Welcome {user}! You're in {server}.
+```
+
+## Examples
+
+**Basic autoresponder:**
+```
+,asr add hello, Hey there! Welcome to the server.
+```
+
+**Strict match with reply:**
+```
+,asr add gm, Good morning! --strict --reply
+```
+
+**Channel-restricted with DM:**
+```
+,asr add apply, Check your DMs for the application! #applications --dm
+```
