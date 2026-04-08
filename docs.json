@@ -36,8 +36,13 @@
         ]
       },
       {
-        "group": "Automation",
+        "group": "Server Setup",
         "pages": [
+          "setup/welcome",
+          "setup/goodbye",
+          "setup/voicemaster",
+          "setup/jail",
+          "setup/boards",
           "automation/autorespond",
           "automation/autoreact",
           "automation/autopost"

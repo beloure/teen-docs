@@ -1,0 +1,67 @@
+---
+title: "Jail"
+description: "Strip a member's roles and restrict them to a jail channel."
+icon: "lock"
+---
+
+Jail removes all of a member's roles and confines them to a dedicated jail channel. Their roles are saved and restored when they're unjailed. Optionally set a duration for automatic release.
+
+## Setup
+
+Run `,jail setup` to create the jail system. This creates:
+- A **Jailed** role
+- A **#jail** text channel (only visible to jailed members)
+- Locks the Jailed role out of all other channels
+
+<Info>
+  To remove the jail system entirely, run `,jail reset`. Active jails will be converted to Discord timeouts with their remaining duration.
+</Info>
+
+## Commands
+
+| Command | Usage | Permission | Description |
+|---|---|---|---|
+| `,jail` | `<user> [duration] [reason]` | Manage Roles | Jail a member |
+| `,unjail` | `<user>` | Manage Roles | Unjail a member and restore their roles |
+| `,jaillist` | | Manage Roles | View all currently jailed members |
+| `,jail setup` | | Administrator | Create the jail role and channel |
+| `,jail reset` | | Administrator | Delete the jail system and all records |
+
+## Duration
+
+You can set a duration for automatic unjailing. Format: `<number><unit>`
+
+| Unit | Example |
+|---|---|
+| `s` | `30s` — 30 seconds |
+| `m` | `10m` — 10 minutes |
+| `h` | `2h` — 2 hours |
+| `d` | `7d` — 7 days |
+
+If no duration is provided, the member stays jailed until manually unjailed.
+
+## Examples
+
+**Jail indefinitely:**
+```
+,jail @user Being disruptive
+```
+
+**Jail for 1 hour:**
+```
+,jail @user 1h Spamming in general
+```
+
+**Unjail a member:**
+```
+,unjail @user
+```
+
+## Behavior
+
+- Jailed members are **DM'd** with the reason and duration
+- All removable roles are stripped and saved — they're restored on unjail
+- If a jailed member **leaves and rejoins**, the jail role is automatically reapplied
+- If someone **manually removes** the jail role, the bot cleans up the jail record
+- Expired jails are automatically processed every 30 seconds
+- You cannot jail the server owner or the bot itself

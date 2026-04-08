@@ -1,0 +1,64 @@
+---
+title: "Welcome"
+description: "Send a custom message when a member joins your server."
+icon: "door-open"
+---
+
+Welcome messages let you greet new members automatically when they join. You can configure up to **3 welcome messages** per server, each in a different channel with different content.
+
+## Commands
+
+All commands require **Manage Server** permission.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,welcome add` | `[#channel] <message> [--delete seconds] [--pending]` | Add a welcome message (max 3) |
+| `,welcome remove` | `<number>` | Remove a welcome message by its list number |
+| `,welcome list` | | View all configured welcome messages |
+| `,welcome test` | `[number] [#channel]` | Preview a welcome message using yourself |
+| `,welcome variables` | | View all supported tagscript variables |
+
+<Info>
+  If no channel is specified, the welcome message will be sent in the channel where you run the command.
+</Info>
+
+## Flags
+
+| Flag | What it does |
+|---|---|
+| `--delete <seconds>` | Auto-delete the welcome message after the specified number of seconds |
+| `--pending` | Wait until the member passes Discord's onboarding or membership screening before sending |
+
+<Warning>
+  The `--pending` flag only works if your server has **Membership Screening** or **Onboarding** enabled in Discord's server settings.
+</Warning>
+
+## Tagscript
+
+Welcome messages support **tagscript** and **embed syntax** for fully customizable messages. Use `,welcome variables` to see all available variables like `{user}`, `{server}`, `{user.mention}`, and more.
+
+```
+,welcome add #welcome Welcome to {server}, {user.mention}! You're member #{server.members}.
+```
+
+## Examples
+
+**Simple welcome message:**
+```
+,welcome add #general Welcome to the server!
+```
+
+**Auto-deleting welcome with mention:**
+```
+,welcome add #welcome Hey {user.mention}, welcome! --delete 30
+```
+
+**Pending welcome (waits for screening):**
+```
+,welcome add #welcome You've been verified! Welcome to {server}. --pending
+```
+
+**Test your messages:**
+```
+,welcome test
+```

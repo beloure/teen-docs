@@ -1,0 +1,84 @@
+---
+title: "Boards"
+description: "Highlight popular messages with starboard, clownboard, and skullboard."
+icon: "star"
+---
+
+Boards are reaction-based highlight systems. When a message receives enough reactions of a specific emoji, it gets reposted to a dedicated board channel. Teen supports three boards:
+
+<CardGroup cols={3}>
+  <Card title="Starboard" icon="star">
+    Default emoji: ⭐
+  </Card>
+  <Card title="Clownboard" icon="masks-theater">
+    Default emoji: 🤡
+  </Card>
+  <Card title="Skullboard" icon="skull">
+    Default emoji: 💀
+  </Card>
+</CardGroup>
+
+All three boards work identically — they just use different emojis and colors by default. Each board is configured independently.
+
+## Setup
+
+To set up a board, point it at a channel:
+
+```
+,starboard set #starboard
+,clownboard set #clownboard
+,skullboard set #skullboard
+```
+
+## Commands
+
+Replace `{board}` with `starboard`, `clownboard`, or `skullboard`. All config commands require **Manage Server** permission.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,{board} set` | `<#channel>` | Set the board channel (required to enable) |
+| `,{board} threshold` | `<number>` | Set the minimum reactions needed (default: 3) |
+| `,{board} emoji` | `<emoji>` | Change the reaction emoji |
+| `,{board} color` | `<hex>` | Change the embed color |
+| `,{board} attachments` | | Toggle showing image attachments |
+| `,{board} jumpurl` | | Toggle the "Jump to message" link |
+| `,{board} timestamp` | | Toggle showing the message timestamp |
+| `,{board} toggle` | | Pause or resume the board |
+| `,{board} ignore` | `<#channels>` | Add or remove channels from the ignore list |
+| `,{board} ignorelist` | | View all ignored channels |
+| `,{board} configuration` | | View the full board configuration |
+| `,{board} reset` | | Delete the board and all its records |
+
+## Behavior
+
+- Messages are posted to the board when they reach the **reaction threshold**
+- If reactions drop below the threshold, the board post is **removed**
+- The reaction count is **updated live** on the board post as reactions change
+- Bot messages are ignored
+- Reactions in the board channel itself are ignored
+- Reactions in ignored channels are ignored
+
+## Examples
+
+**Set up starboard with a threshold of 5:**
+```
+,starboard set #starboard
+,starboard threshold 5
+```
+
+**Change clownboard emoji and color:**
+```
+,clownboard emoji 😂
+,clownboard color #FF6600
+```
+
+**Ignore a channel from skullboard:**
+```
+,skullboard ignore #shitposting
+```
+
+**Pause and resume:**
+```
+,starboard toggle
+,starboard toggle
+```

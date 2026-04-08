@@ -1,0 +1,75 @@
+---
+title: "VoiceMaster"
+description: "Let members create and manage their own temporary voice channels."
+icon: "microphone"
+---
+
+VoiceMaster creates a system where members can join a designated voice channel to automatically get their own temporary channel. Channels are deleted when everyone leaves.
+
+## Setup
+
+Run `,voicemaster setup` to create the VoiceMaster system. This creates:
+- A **VoiceMaster** category
+- A read-only **#ui** text channel with a control panel
+- A **create** voice channel that members join to get their own channel
+
+<Info>
+  To remove the entire VoiceMaster system, run `,voicemaster reset`.
+</Info>
+
+## Admin Commands
+
+These require **Manage Server** permission.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,voicemaster setup` | | Create the VoiceMaster system |
+| `,voicemaster reset` | | Delete the VoiceMaster system and all config |
+| `,voicemaster category` | `<category>` | Move new channels to a different category |
+| `,voicemaster defaultrole` | `<role>` | Assign a role to members while they're in a VM channel |
+| `,voicemaster defaultregion` | `[region]` | Set the default voice region for new channels |
+| `,voicemaster defaultbitrate` | `<kbps>` | Set the default bitrate for new channels (8–384) |
+
+**Available regions:** `brazil`, `hongkong`, `india`, `japan`, `rotterdam`, `russia`, `singapore`, `southafrica`, `sydney`, `us-central`, `us-east`, `us-south`, `us-west`, or `auto`.
+
+## Channel Owner Commands
+
+These can only be used by the owner of a VoiceMaster channel while they're connected to it.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,voicemaster name` | `<name>` | Rename your channel |
+| `,voicemaster bitrate` | `<kbps>` | Change the bitrate |
+| `,voicemaster limit` | `[number]` | Set a user limit (0 to remove) |
+| `,voicemaster lock` | | Prevent others from joining |
+| `,voicemaster unlock` | | Allow others to join |
+| `,voicemaster ghost` | | Hide the channel from the channel list |
+| `,voicemaster unghost` | | Make the channel visible again |
+| `,voicemaster permit` | `<member or role>` | Allow a specific user or role to join |
+| `,voicemaster reject` | `<member or role>` | Block and kick a user or role from the channel |
+| `,voicemaster claim` | | Claim ownership if the original owner left |
+| `,voicemaster transfer` | `<member>` | Transfer ownership to another member |
+| `,voicemaster configuration` | | View your channel's current settings |
+
+## Interface Panel
+
+The **#ui** channel has a control panel with buttons that mirror the commands above. Members can use these buttons instead of typing commands:
+
+| Button | Action |
+|---|---|
+| Lock / Unlock | Toggle whether others can join |
+| Ghost / Unghost | Toggle channel visibility |
+| Claim | Take ownership if the owner left |
+| Disconnect | Select a member to disconnect and block |
+| Permit | Unblock a previously blocked member |
+| Rename | Open a popup to rename the channel |
+| Activity | Start a Discord activity (YouTube, Poker, Chess, etc.) |
+| Info | View channel details |
+| + / − | Increase or decrease the user limit |
+
+## Behavior
+
+- Channels are named `{display name}'s vc` by default
+- Channels are **automatically deleted** when all human members leave
+- Spam protection: creating more than 3 channels in 2 minutes triggers a 5-minute cooldown
+- Channel names are filtered for inappropriate language

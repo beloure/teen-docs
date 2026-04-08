@@ -1,0 +1,54 @@
+---
+title: "Goodbye"
+description: "Send a custom message when a member leaves your server."
+icon: "door-closed"
+---
+
+Goodbye messages are sent automatically when a member leaves or is kicked from your server. Like welcome messages, you can configure up to **3 goodbye messages** per server.
+
+## Commands
+
+All commands require **Manage Server** permission. You can also use `,bye` as a shortcut.
+
+| Command | Usage | Description |
+|---|---|---|
+| `,goodbye add` | `[#channel] <message> [--delete seconds]` | Add a goodbye message (max 3) |
+| `,goodbye remove` | `<number>` | Remove a goodbye message by its list number |
+| `,goodbye list` | | View all configured goodbye messages |
+| `,goodbye test` | `[number] [#channel]` | Preview a goodbye message using yourself |
+| `,goodbye variables` | | View all supported tagscript variables |
+
+<Info>
+  If no channel is specified, the goodbye message will be sent in the channel where you run the command.
+</Info>
+
+## Flags
+
+| Flag | What it does |
+|---|---|
+| `--delete <seconds>` | Auto-delete the goodbye message after the specified number of seconds |
+
+## Tagscript
+
+Goodbye messages support the same **tagscript** and **embed syntax** as welcome messages. Use `,goodbye variables` to see all available variables.
+
+```
+,goodbye add #goodbye {user} has left {server}. We now have {server.members} members.
+```
+
+## Examples
+
+**Simple goodbye:**
+```
+,goodbye add #goodbye Goodbye {user}, we'll miss you!
+```
+
+**Auto-deleting goodbye:**
+```
+,goodbye add #general {user} just left. --delete 15
+```
+
+**Test your messages:**
+```
+,goodbye test
+```
