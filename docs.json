@@ -36,57 +36,11 @@
         ]
       },
       {
-        "group": "Security",
-        "pages": [
-          "security/antinuke",
-          "security/automod"
-        ]
-      },
-      {
-        "group": "Server Setup",
-        "pages": [
-          "setup/welcome-goodbye",
-          "setup/logging",
-          "setup/tickets",
-          "setup/voicemaster",
-          "setup/boards",
-          "setup/jail"
-        ]
-      },
-      {
         "group": "Automation",
         "pages": [
           "automation/autorespond",
           "automation/autoreact",
           "automation/autopost"
-        ]
-      },
-      {
-        "group": "Configuration",
-        "pages": [
-          "configuration/boosterroles",
-          "configuration/customize",
-          "configuration/disable"
-        ]
-      },
-      {
-        "group": "Music",
-        "pages": [
-          "music/filters"
-        ]
-      },
-      {
-        "group": "Integrations",
-        "pages": [
-          "integrations/lastfm",
-          "integrations/tiktok"
-        ]
-      },
-      {
-        "group": "Extras",
-        "pages": [
-          "extras/embed-scripting",
-          "extras/giveaways"
         ]
       }
     ]

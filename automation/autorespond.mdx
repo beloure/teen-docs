@@ -12,19 +12,19 @@ Autorespond lets you set up automatic replies to specific words or phrases. When
 
 ## Commands
 
-The base command is `,autorespond` (or `,asr` for short). All subcommands require **Manage Server** permission.
+The base command is `,autorespond`. All subcommands require **Manage Server** permission.
 
 | Command | Usage | Description |
 |---|---|---|
-| `,asr add` | `<trigger>, <response>` | Create a new autoresponder |
-| `,asr remove` | `<trigger>` | Delete an autoresponder |
-| `,asr update` | `<trigger>, <new response>` | Update an existing response |
-| `,asr list` | | View all autoresponders |
-| `,asr reset` | | Remove **all** autoresponders |
+| `,autorespond add` | `<trigger>, <response>` | Create a new autoresponder |
+| `,autorespond remove` | `<trigger>` | Delete an autoresponder |
+| `,autorespond update` | `<trigger>, <new response>` | Update an existing response |
+| `,autorespond list` | | View all autoresponders |
+| `,autorespond reset` | | Remove **all** autoresponders |
 
 ## Flags
 
-Add these to the end of your `,asr add` or `,asr update` command to change how the response behaves.
+Add these to the end of your `,autorespond add` or `,autorespond update` command to change how the response behaves.
 
 | Flag | What it does |
 |---|---|
@@ -41,12 +41,12 @@ Add these to the end of your `,asr add` or `,asr update` command to change how t
 You can limit an autoresponder to a specific **channel** or **role** by including them in the command.
 
 ```
-,asr add hello, Hey there! #general
+,autorespond add hello, Hey there! #general
 ```
 This response will only trigger in **#general**.
 
 ```
-,asr add hello, Hey there! @Members
+,autorespond add hello, Hey there! @Members
 ```
 This response will only trigger for users with the **Members** role.
 
@@ -55,22 +55,22 @@ This response will only trigger for users with the **Members** role.
 Responses support **tagscript variables** for dynamic content. You can use variables like `{user}`, `{server}`, `{channel}`, and more to personalize your responses.
 
 ```
-,asr add hello, Welcome {user}! You're in {server}.
+,autorespond add hello, Welcome {user}! You're in {server}.
 ```
 
 ## Examples
 
 **Basic autoresponder:**
 ```
-,asr add hello, Hey there! Welcome to the server.
+,autorespond add hello, Hey there! Welcome to the server.
 ```
 
 **Strict match with reply:**
 ```
-,asr add gm, Good morning! --strict --reply
+,autorespond add gm, Good morning! --strict --reply
 ```
 
 **Channel-restricted with DM:**
 ```
-,asr add apply, Check your DMs for the application! #applications --dm
+,autorespond add apply, Check your DMs for the application! #applications --dm
 ```

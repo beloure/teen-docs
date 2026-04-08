@@ -12,15 +12,15 @@ Autoreact adds emoji reactions to messages that match a trigger. Useful for fun 
 
 ## Commands
 
-The base command is `,autoreact` (or `,ar` for short). All subcommands require **Manage Server** permission.
+The base command is `,autoreact`. All subcommands require **Manage Server** permission.
 
 | Command | Usage | Description |
 |---|---|---|
-| `,ar add` | `<trigger>, <emoji>` | Create a new autoreaction |
-| `,ar remove` | `<trigger>` | Delete an autoreaction |
-| `,ar update` | `<trigger>, <new emoji>` | Update an existing reaction |
-| `,ar list` | | View all autoreactions |
-| `,ar reset` | | Remove **all** autoreactions |
+| `,autoreact add` | `<trigger>, <emoji>` | Create a new autoreaction |
+| `,autoreact remove` | `<trigger>` | Delete an autoreaction |
+| `,autoreact update` | `<trigger>, <new emoji>` | Update an existing reaction |
+| `,autoreact list` | | View all autoreactions |
+| `,autoreact reset` | | Remove **all** autoreactions |
 
 ## Flags
 
@@ -33,12 +33,12 @@ The base command is `,autoreact` (or `,ar` for short). All subcommands require *
 Like autorespond, you can restrict reactions to a specific **channel** or **role**.
 
 ```
-,ar add hello, 👋 #general
+,autoreact add hello, 👋 #general
 ```
 Only reacts in **#general**.
 
 ```
-,ar add hello, 👋 @Members
+,autoreact add hello, 👋 @Members
 ```
 Only reacts to messages from users with the **Members** role.
 
@@ -50,15 +50,15 @@ Only reacts to messages from users with the **Members** role.
 
 **Basic autoreaction:**
 ```
-,ar add hello, 👋
+,autoreact add hello, 👋
 ```
 
 **Custom emoji with channel restriction:**
 ```
-,ar add clip, :fire: #clips
+,autoreact add clip, :fire: #clips
 ```
 
 **Strict match:**
 ```
-,ar add gm, ☀️ --strict
+,autoreact add gm, ☀️ --strict
 ```
